@@ -1,0 +1,73 @@
+<div class="uk-card uk-card-small uk-card-default">
+
+    <div class="uk-card-header">
+        <h4 class="uk-card-title uk-margin-remove-bottom">Funnel (Title not implemented)</h4>
+    </div>
+
+    <div class="uk-padding" uk-grid>
+        
+        <div class="funnel-main uk-grid-collapse uk-child-width-expand uk-text-center uk-width-5-6" uk-grid>
+
+            <div>
+                <div *ngFor="let row of rows" class="row-header uk-tile uk-padding-small funnel-cell-body">{{row.name}}</div>
+                <div class="total row-header uk-tile uk-padding-small funnel-cell-body">Total</div>
+            </div>
+            
+            <!-- Repeats for every column -->
+            <div *ngFor="let column of columns; index as c">
+                
+                <!-- Body -->
+                <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
+                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">{{getFunnelValue(column, row)}}</div>
+                </a>
+
+                <!-- Totals row -->
+                <a class="uk-link-reset" [attr.href]="getHref(column, null)">
+                    <div class="total uk-tile uk-padding-small funnel-cell-body column-{{c}}">{{getColumnTotal(column)}}</div>
+                </a>
+
+                <!-- Footer -->
+                <div class="footer uk-tile uk-padding-small column-{{c}} funnel-cell">{{column.name}}</div>
+                
+            </div>
+
+            <!-- Totals columns -->
+            <div class="total-column">
+                
+                <!-- Body -->
+                <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
+                    <div class="cell uk-tile uk-padding-small funnel-cell-body funnel-cell row-total">{{getRowTotal(row)}}</div>
+                </a>
+                
+                <!-- Totals row -->
+                <a class="uk-link-reset" href="https://kplusv.sharepoint.com/sites/startlife/Lists/Cases/AllItems.aspx">
+                    <div class="total uk-tile uk-padding-small funnel-cell-body funnel-total">{{getTotal()}}</div>
+                </a>
+                
+                <!-- Footer -->
+                <div class="footer uk-tile uk-padding-small column funnel-cell">Total</div>
+
+            </div>
+        </div>
+
+        <div class="uk-text-center uk-width-1-6">
+
+            <div class="market-counter">0<br />
+                To market
+            </div>
+            <div class="market-counter">0<br />
+                On market
+            </div>
+            <div>Market pull</div>
+
+            <div class="market-counter">0<br />
+                To market
+            </div>
+            <div class="market-counter">0<br />
+                On market
+            </div>
+            <div>Market technology push</div>
+            
+        </div>
+    </div>
+</div>

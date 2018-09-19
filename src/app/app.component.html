@@ -1,20 +1,44 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="uk-container uk-container-expand">
 
+    <navbar></navbar>
+
+    <!-- Top KPI row -->
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[0].title}}</div></div>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[1].title}}</div></div>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[2].title}}</div></div>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[3].title}}</div></div>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[4].title}}</div></div>
+        <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div> 
+    </div>
+    
+    <div class="uk-child-width-1-2@m" uk-grid>
+
+        <!-- Left column -->
+        <div>
+            <!-- TODO: KPI's. Seperate component? -->
+            <funnel></funnel>
+            <!-- TODO: two seperate funnels? -->
+            <funnel></funnel>        
+        </div>
+
+        <!-- Right column -->
+        <div>
+            <div class="uk-child-width-1-2" uk-grid>
+                <pie-chart></pie-chart>
+                <bar-chart></bar-chart>    
+            </div>
+            <div class="uk-child-width-1-4@s" uk-grid>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[6].title}}</div></div>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[7].title}}</div></div>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[8].title}}</div></div>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[9].title}}</div></div>
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[10].title}}</div></div> 
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[11].title}}</div></div> 
+                <div><div class="uk-card uk-card-default uk-card-body">{{indicators[12].title}}</div></div> 
+            </div>
+            <!-- TODO: KPI's. Seperate component? -->        
+        </div>
+    </div>
+</div>

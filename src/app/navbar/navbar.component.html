@@ -1,0 +1,45 @@
+<nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li>
+                <a href="#">EIT RawMaterials </a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li *ngFor="let clc of clcs"><a href="{{clc.url}}">{{clc.title}}</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Lists</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li>
+                            <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx">
+                                Innovation Initiatives
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Events/AllItems.aspx">
+                                Events
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Partners/AllItems.aspx">
+                                Customers and Investors
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li>
+                <theme-switcher></theme-switcher>
+            </li>
+        </ul>
+    </div>
+</nav>

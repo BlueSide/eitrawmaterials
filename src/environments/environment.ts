@@ -3,7 +3,27 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    mockData: true,
+    sharePointUrl: 'https://kplusv.sharepoint.com/sites/eitrawmaterials',
+    tokenServiceUrl: 'http://localhost:8033/token',
+
+    sharePointCredentials: {
+        username: 'workflow@kplusv.onmicrosoft.com',
+        password: '2pXTEUakVakfx2QE',
+        applicationId: 'd8177016-9e69-4548-bc90-35212a357441',
+        site: 'https://kplusv.sharepoint.com/sites/eitrawmaterials',
+        url: 'https://kplusv.sharepoint.com/'
+    },
+
+    clcs: [
+        {title: 'CLC North', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCNorth'},
+        {title: 'CLC Baltic Sea', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCBalticSea'},
+        {title: 'CLC West', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCWest'},
+        {title: 'CLC Central', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCCentral'},
+        {title: 'CLC East', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCEast'},
+        {title: 'CLC South', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCSouth'}
+    ]
 };
 
 /*
