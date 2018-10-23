@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService, SPField } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
@@ -11,20 +11,28 @@ const LIST_NAME: string = 'Innovation Initiatives';
   templateUrl: './funnel.component.html',
   styleUrls: ['./funnel.component.scss']
 })
-export class FunnelComponent extends BSDataComponent
+export class FunnelComponent extends BSDataComponent implements OnInit
 {
+    @Input() track: string;
+
+    public title: string = '';
+
+    public marketPullToMarket: number;
+    public marketPullOnMarket: number;
+    public technologyPushToMarket: number;
+    public technologyPushOnMarket: number;
     
     public columns: SPField[] = [
-        {name: 'New lead', internalName: '1. Lead'},
-        {name: 'Pre-assessment', internalName: '2. Intake done'},
-        {name: 'Intake', internalName: '3. Support started'},
-        {name: 'Support', internalName: '4. Entered stage 1'},
-        {name: 'Market introduction', internalName: '5. Entered stage 2'},
+        {name: 'New lead', internalName: '1. New lead'},
+        {name: 'Pre-assessment', internalName: '2. Pre-assessment'},
+        {name: 'Intake', internalName: '3. Intake/Evaluation'},
+        {name: 'Support', internalName: '4. Support'},
+        {name: 'Market introduction', internalName: '5. Market introduction'},
     ];
 
     public rows: SPField[] = [
         {name: 'Active', internalName: 'Active'},
-        {name: 'On-hold', internalName: 'On-hold'},
+        {name: 'On hold', internalName: 'On hold'},
         {name: 'Rejected', internalName: 'Rejected'},
         {name: 'Closed', internalName: 'Closed'},
     ];
@@ -37,64 +45,58 @@ export class FunnelComponent extends BSDataComponent
         this.subscribe(LIST_NAME);
     }
 
+    public ngOnInit()
+    {
+        this.title = 'Business development funnel - ' + this.track;
+    }
     
     public getColumnTotal(column: any)
     {
-        return 0;
-/*
         if(this.lists[LIST_NAME])
         {
             return this.lists[LIST_NAME].filter((item) => {
-                return item[LIST_NAME] === column.internalName;
+                return item['Phase_x0020_for_x0020_business_x'] === column.internalName
+                    && item['Type_x0020_of_x0020_project'] === this.track;
             }).length;
         }
         return null;
-*/
     }
     
     public getRowTotal(row: any)
     {
-        //TODO: Remove early return when we have data!!
-        return 0;
-        /*
         if(this.lists[LIST_NAME])
         {
             return this.lists[LIST_NAME].filter((item) => {
-                return item['Status'] === row.internalName;
+                return item['Status'] === row.internalName
+                    && item['Type_x0020_of_x0020_project'] === this.track;
             }).length;
         }
         return null;
-*/
     }
 
     public getTotal()
     {
-        //TODO: Remove early return when we have data!!
-        return 0;
-        /*
         if(this.lists[LIST_NAME])
         {
-            return this.lists[LIST_NAME].length;
+            return this.lists[LIST_NAME].filter((item) => {
+                return item['Type_x0020_of_x0020_project'] === this.track;
+            }).length;
         }
-        return 0;
-*/
+        return null;
     }
 
     public getFunnelValue(column, row): number
     {
-        //TODO: Remove early return when we have data!!
-        return 0;
-          /*
-      if(this.lists[LIST_NAME])
+        if(this.lists[LIST_NAME])
         {
             return this.lists[LIST_NAME].filter((item) => {
                 return (
-                    item['Phase'] === column.internalName
+                    item['Phase_x0020_for_x0020_business_x'] === column.internalName
                         && item['Status'] === row.internalName
+                        && item['Type_x0020_of_x0020_project'] === this.track
                 )
             }).length;
         }
-*/
     }
 
     public getHref(column, row)
@@ -117,8 +119,53 @@ export class FunnelComponent extends BSDataComponent
         return result;
     }
 
+    // TODO: Test!
     protected onNewData(): void
     {
+        // NOTE: Market pull
+        // NOTE: To market
+        this.marketPullToMarket = this.lists[LIST_NAME].filter((item) => {
+            return (
+                item['Type_x0020_of_x0020_innovation'] === 'Market pull'
+                    && item['Type_x0020_of_x0020_project'] === this.track
+                    && item['CALCTRL_x0020_level_x0020_at_x00'] !== 9
+                    && item['CALCCRL_x0020_level_x0020_at_x00'] !== 9
+                    && item['Phase_x0020_for_x0020_business_x'].charAt(0) === '4'
+            )
+        }).length;
+
+        // NOTE: On market
+        this.marketPullOnMarket = this.lists[LIST_NAME].filter((item) => {
+            return (
+                item['Type_x0020_of_x0020_innovation'] === 'Market pull'
+                    && item['Type_x0020_of_x0020_project'] === this.track
+                    && (item['CALCTRL_x0020_level_x0020_at_x00'] === 9
+                        || item['CALCCRL_x0020_level_x0020_at_x00'] === 9)
+            )
+        }).length;
+
+
+        // NOTE: Market technology push
+        // NOTE: To market
+        this.technologyPushToMarket = this.lists[LIST_NAME].filter((item) => {
+            return (
+                item['Type_x0020_of_x0020_innovation'] === 'Technology push'
+                    && item['Type_x0020_of_x0020_project'] === this.track
+                    && item['CALCTRL_x0020_level_x0020_at_x00'] !== 9
+                    && item['CALCCRL_x0020_level_x0020_at_x00'] !== 9
+                    && item['Phase_x0020_for_x0020_business_x'].charAt(0) === '4'
+            )
+        }).length;
+
+        // NOTE: On market
+        this.technologyPushOnMarket = this.lists[LIST_NAME].filter((item) => {
+            return (
+                item['Type_x0020_of_x0020_innovation'] === 'Technology push'
+                    && item['Type_x0020_of_x0020_project'] === this.track
+                    && (item['CALCTRL_x0020_level_x0020_at_x00'] === 9
+                        || item['CALCCRL_x0020_level_x0020_at_x00'] === 9)
+            )
+        }).length;
     }
 }
 

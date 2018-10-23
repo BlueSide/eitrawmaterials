@@ -30,8 +30,8 @@ export class PieChartComponent extends BSDataComponent implements OnInit
             data: {
                 labels: ['Startup/SME track', 'Upscaling track'],
                 datasets: [{
-                    data: [2.6, 5.3, 6, 7, 8],
-                    backgroundColor: ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#D8885B']
+                    data: [8, 5.3, 6, 7, 2.6],
+                    backgroundColor: ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b']
                 }]
             },
             options: {
@@ -44,18 +44,6 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                 tooltips: {
 		    mode: 'point',
 		    intersect: false
-		},
-                scales: {
-		    xAxes: [{
-			stacked: true,
-		    }],
-		    yAxes: [{
-			stacked: true,
-                        ticks: {
-                            suggestedMax: 9,
-                            beginAtZero: true
-                        }
-		    }]
 		}
             }
         };
