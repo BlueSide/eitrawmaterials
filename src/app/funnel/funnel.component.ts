@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService, SPField } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
@@ -11,17 +11,8 @@ const LIST_NAME: string = 'Innovation Initiatives';
   templateUrl: './funnel.component.html',
   styleUrls: ['./funnel.component.scss']
 })
-export class FunnelComponent extends BSDataComponent implements OnInit
+export class FunnelComponent extends BSDataComponent
 {
-    @Input() track: string;
-
-    public title: string = '';
-
-    public marketPullToMarket: number;
-    public marketPullOnMarket: number;
-    public technologyPushToMarket: number;
-    public technologyPushOnMarket: number;
-    
     public columns: SPField[] = [
         {name: 'New lead', internalName: '1. New lead'},
         {name: 'Pre-assessment', internalName: '2. Pre-assessment'},
@@ -44,19 +35,13 @@ export class FunnelComponent extends BSDataComponent implements OnInit
         super(spData, globalFilter);
         this.subscribe(LIST_NAME);
     }
-
-    public ngOnInit()
-    {
-        this.title = 'Business development funnel - ' + this.track;
-    }
     
     public getColumnTotal(column: any)
     {
         if(this.lists[LIST_NAME])
         {
             return this.lists[LIST_NAME].filter((item) => {
-                return item['Phase_x0020_for_x0020_business_x'] === column.internalName
-                    && item['Type_x0020_of_x0020_project'] === this.track;
+                return item['Phase_x0020_for_x0020_business_x'] === column.internalName;
             }).length;
         }
         return null;
@@ -67,8 +52,7 @@ export class FunnelComponent extends BSDataComponent implements OnInit
         if(this.lists[LIST_NAME])
         {
             return this.lists[LIST_NAME].filter((item) => {
-                return item['Status'] === row.internalName
-                    && item['Type_x0020_of_x0020_project'] === this.track;
+                return item['Status'] === row.internalName;
             }).length;
         }
         return null;
@@ -78,9 +62,7 @@ export class FunnelComponent extends BSDataComponent implements OnInit
     {
         if(this.lists[LIST_NAME])
         {
-            return this.lists[LIST_NAME].filter((item) => {
-                return item['Type_x0020_of_x0020_project'] === this.track;
-            }).length;
+            return this.lists[LIST_NAME].length;
         }
         return null;
     }
@@ -93,8 +75,7 @@ export class FunnelComponent extends BSDataComponent implements OnInit
                 return (
                     item['Phase_x0020_for_x0020_business_x'] === column.internalName
                         && item['Status'] === row.internalName
-                        && item['Type_x0020_of_x0020_project'] === this.track
-                )
+                );
             }).length;
         }
     }
@@ -119,53 +100,9 @@ export class FunnelComponent extends BSDataComponent implements OnInit
         return result;
     }
 
-    // TODO: Test!
     protected onNewData(): void
     {
-        // NOTE: Market pull
-        // NOTE: To market
-        this.marketPullToMarket = this.lists[LIST_NAME].filter((item) => {
-            return (
-                item['Type_x0020_of_x0020_innovation'] === 'Market pull'
-                    && item['Type_x0020_of_x0020_project'] === this.track
-                    && item['CALCTRL_x0020_level_x0020_at_x00'] !== 9
-                    && item['CALCCRL_x0020_level_x0020_at_x00'] !== 9
-                    && item['Phase_x0020_for_x0020_business_x'].charAt(0) === '4'
-            )
-        }).length;
 
-        // NOTE: On market
-        this.marketPullOnMarket = this.lists[LIST_NAME].filter((item) => {
-            return (
-                item['Type_x0020_of_x0020_innovation'] === 'Market pull'
-                    && item['Type_x0020_of_x0020_project'] === this.track
-                    && (item['CALCTRL_x0020_level_x0020_at_x00'] === 9
-                        || item['CALCCRL_x0020_level_x0020_at_x00'] === 9)
-            )
-        }).length;
-
-
-        // NOTE: Market technology push
-        // NOTE: To market
-        this.technologyPushToMarket = this.lists[LIST_NAME].filter((item) => {
-            return (
-                item['Type_x0020_of_x0020_innovation'] === 'Technology push'
-                    && item['Type_x0020_of_x0020_project'] === this.track
-                    && item['CALCTRL_x0020_level_x0020_at_x00'] !== 9
-                    && item['CALCCRL_x0020_level_x0020_at_x00'] !== 9
-                    && item['Phase_x0020_for_x0020_business_x'].charAt(0) === '4'
-            )
-        }).length;
-
-        // NOTE: On market
-        this.technologyPushOnMarket = this.lists[LIST_NAME].filter((item) => {
-            return (
-                item['Type_x0020_of_x0020_innovation'] === 'Technology push'
-                    && item['Type_x0020_of_x0020_project'] === this.track
-                    && (item['CALCTRL_x0020_level_x0020_at_x00'] === 9
-                        || item['CALCCRL_x0020_level_x0020_at_x00'] === 9)
-            )
-        }).length;
     }
 }
 

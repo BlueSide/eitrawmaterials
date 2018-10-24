@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PushPullComponent } from './push-pull.component';
+import { HQComponent } from './hq.component';
 
-describe('PushPullComponent', () => {
-  let component: PushPullComponent;
-  let fixture: ComponentFixture<PushPullComponent>;
+describe('HQComponent', () => {
+  let component: HQComponent;
+  let fixture: ComponentFixture<HQComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PushPullComponent ]
+      declarations: [ HQComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PushPullComponent);
+    fixture = TestBed.createComponent(HQComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

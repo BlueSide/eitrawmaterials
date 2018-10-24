@@ -1,14 +1,13 @@
 <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
-            <li>
-                <a href="#">EIT RawMaterials </a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li *ngFor="let clc of clcs"><a href="{{clc.url}}">{{clc.title}}</a></li>
-                    </ul>
-                </div>
-            </li>
+            <li><a routerLink="/">EIT RawMaterials </a></li>
+            <li><a routerLink="/clc-north">CLC North</a></li>
+            <li><a routerLink="/clc-baltic-sea">CLC Baltic Sea</a></li>
+            <li><a routerLink="/clc-west">CLC West</a></li>
+            <li><a routerLink="/clc-central">CLC Central</a></li>
+            <li><a routerLink="/clc-east">CLC East</a></li>
+            <li><a routerLink="/clc-south">CLC South</a></li>
             <li>
                 <a href="#">Lists</a>
                 <div class="uk-navbar-dropdown">

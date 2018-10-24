@@ -1,12 +1,12 @@
 <div class="uk-card uk-card-small uk-card-default">
 
     <div class="uk-card-header">
-        <h4 class="uk-card-title uk-margin-remove-bottom">{{title}}</h4>
+        <h4 class="uk-card-title uk-margin-remove-bottom">Funnel Title here</h4>
     </div>
 
-    <div class="uk-padding" uk-grid>
+    <div class="uk-padding">
         
-        <div class="funnel-main uk-grid-collapse uk-child-width-expand uk-text-center uk-width-5-6" uk-grid>
+        <div class="funnel-main uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
 
             <div>
                 <div *ngFor="let row of rows" class="row-header uk-tile uk-padding-small funnel-cell-body">{{row.name}}</div>
@@ -48,26 +48,6 @@
                 <div class="footer uk-tile uk-padding-small column funnel-cell">Total</div>
 
             </div>
-        </div>
-
-        <div class="uk-text-center uk-width-1-6">
-
-            <div class="market-counter">{{marketPullToMarket}}<br />
-                To market
-            </div>
-            <div class="market-counter">{{marketPullOnMarket}}<br />
-                On market
-            </div>
-            <div>Market pull</div>
-
-            <div class="market-counter">{{technologyPushToMarket}}<br />
-                To market
-            </div>
-            <div class="market-counter">{{technologyPushOnMarket}}<br />
-                On market
-            </div>
-            <div>Market technology push</div>
-            
         </div>
     </div>
 </div>

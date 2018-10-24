@@ -15,15 +15,6 @@ export const environment = {
         site: 'https://kplusv.sharepoint.com/sites/eitrawmaterials',
         url: 'https://kplusv.sharepoint.com/'
     },
-
-    clcs: [
-        {title: 'CLC North', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCNorth'},
-        {title: 'CLC Baltic Sea', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCBalticSea'},
-        {title: 'CLC West', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCWest'},
-        {title: 'CLC Central', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCCentral'},
-        {title: 'CLC East', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCEast'},
-        {title: 'CLC South', url: 'https://kplusv.sharepoint.com/sites/eitrawmaterials/CLCSouth'}
-    ]
 };
 
 /*

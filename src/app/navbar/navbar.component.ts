@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment';
 })
 export class NavbarComponent implements OnInit
 {
-
-    public clcs: any[] = environment.clcs;
     
     constructor() { }
 

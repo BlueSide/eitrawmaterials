@@ -1,0 +1,36 @@
+<!-- Top KPI row -->
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[0].title}}</div></div>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[1].title}}</div></div>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[2].title}}</div></div>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[3].title}}</div></div>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[4].title}}</div></div>
+    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div> 
+</div>
+
+<div class="uk-child-width-1-2@m" uk-grid>
+
+    <!-- Left column -->
+    <div>
+        <funnel></funnel>
+    </div>
+
+    <!-- Right column -->
+    <div>
+        <div class="uk-child-width-1-2" uk-grid>
+            <pie-chart></pie-chart>
+            <bar-chart></bar-chart>    
+        </div>
+        <div class="uk-child-width-1-4@s" uk-grid>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[6].title}}</div></div>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[7].title}}</div></div>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[8].title}}</div></div>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[9].title}}</div></div>
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[10].title}}</div></div> 
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[11].title}}</div></div> 
+            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[12].title}}</div></div> 
+        </div>
+        <!-- TODO: KPI's. Seperate component? -->        
+    </div>
+</div>
