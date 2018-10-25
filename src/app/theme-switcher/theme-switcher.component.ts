@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { Component } from '@angular/core';
+import { ThemeService, Theme } from '../theme.service';
 
 @Component({
     selector: 'theme-switcher',
     templateUrl: './theme-switcher.component.html',
     styleUrls: ['./theme-switcher.component.scss']
 })
-export class ThemeSwitcherComponent implements OnInit
+export class ThemeSwitcherComponent
 {
 
     constructor(private themes: ThemeService) { }
 
-    ngOnInit()
+    public toggleTheme(theme: Theme)
     {
+        theme.filter.enabled = !theme.filter.enabled;
     }
-
 }
