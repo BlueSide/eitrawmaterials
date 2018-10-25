@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ClcService, CLC } from '../clc/clc.service';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -6,12 +7,9 @@ import { environment } from '../../environments/environment';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit
+export class NavbarComponent
 {
     
-    constructor() { }
-
-    ngOnInit() {
-    }
+    constructor(private clcs: ClcService) { }
 
 }

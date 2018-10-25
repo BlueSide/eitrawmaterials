@@ -14,7 +14,7 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class ClcComponent extends BSDataComponent
 {
-    public clc: CLC;
+    public activeClc: CLC;
 
     public indicators: any = [
         { title: "Student startups - EIT labeled", value: 0 },
@@ -31,7 +31,7 @@ export class ClcComponent extends BSDataComponent
         { title: "Partners in upscaling projects", value: 0 },
         { title: "KIC-start funding ideas", value: 0 },
         { title: "Involved VC-firms", value: 0 },
-        { title: "New SME's created", value:  0}
+        { title: "New SME's created", value: 0 }
     ];
 
     constructor(private route: ActivatedRoute,
@@ -42,11 +42,11 @@ export class ClcComponent extends BSDataComponent
         super(spData, globalFilter);
         // Determine which CLC we're on
        this.route.params.subscribe(params => {
-           this.clc = this.clcs.getClc(params['clc']);
+           this.activeClc = this.clcs.getClc(params['clc']);
        });
 
         this.subscribe(LIST_NAME);
-        
+
     }
 
     public onNewData(): void
