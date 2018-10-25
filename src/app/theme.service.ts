@@ -72,10 +72,16 @@ export class ThemeService
         return this.themes;
     }
 
+    public getTheme(index: number): Theme
+    {
+        return this.themes[index];
+    }
+
     public getThemeByInternalName(internalName: string): Theme
     {
         return this.themes.find((theme) => theme.internalName === internalName);
     }
+
 }
 
 export class Theme
