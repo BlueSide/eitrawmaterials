@@ -1,3 +1,45 @@
-<p>
-  clc-funnel works!
-</p>
+<div class="funnel-main ">
+        <div class="uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
+
+            <div>
+                <div class="row-header uk-tile uk-padding-small funnel-cell-body"></div>
+                <div *ngFor="let row of rows" class="row-header uk-tile uk-padding-small funnel-cell-body">{{row.name}}</div>
+            </div>
+            
+            <!-- Repeats for every column -->
+            <div *ngFor="let column of columns; index as c">
+
+                <!-- Header -->
+                <div class="header uk-tile uk-padding-small column-{{c}} funnel-cell">{{column.name}}</div>
+                
+                <!-- Body -->
+                <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
+                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">{{getFunnelValue(column, row)}}</div>
+                </a>
+
+                
+            </div>
+
+            <div>
+                <!-- Header -->
+                <div class="header uk-tile uk-padding-small funnel-cell">On market</div>
+
+                <!-- Body -->
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell"></div>
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market">33</div>
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell"></div>
+                
+            </div>
+
+        </div>
+
+        <!-- Stages -->
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-tile stage"></div>
+            <div class="uk-tile stage">Exploration stage</div>
+            <div class="uk-tile stage">Validation stage</div>
+            <div class="uk-tile stage">Build stage</div>
+            <div class="uk-tile stage">Launch</div>
+        </div>
+        
+</div>

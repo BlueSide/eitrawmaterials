@@ -9,22 +9,22 @@
     <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div> 
 </div>
 
-<div class="uk-child-width-1-2@m">
+<div>
 
     <!-- Left column -->
-    <div class="uk-padding">
-        <div class="uk-card uk-card-default uk-card-body">
-            <clc-funnel></clc-funnel>
-        </div>
+    <div>
+        <clc-funnel></clc-funnel>
     </div>
 
     <!-- Right column -->
     <div>
-        <div class="uk-child-width-1-2" uk-grid>
+        <div class="uk-child-width-1-4" uk-grid>
+            <pie-chart></pie-chart>
+            <bar-chart></bar-chart>    
             <pie-chart></pie-chart>
             <bar-chart></bar-chart>    
         </div>
-        <div class="uk-child-width-1-4@s" uk-grid>
+        <div class="uk-child-width-expand" uk-grid>
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div>
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[6].title}}</div></div>
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[7].title}}</div></div>
@@ -32,7 +32,6 @@
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[9].title}}</div></div>
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[10].title}}</div></div> 
             <div><div class="uk-card uk-card-default uk-card-body">{{indicators[11].title}}</div></div> 
-            <div><div class="uk-card uk-card-default uk-card-body">{{indicators[12].title}}</div></div> 
         </div>
         <!-- TODO: KPI's. Seperate component? -->        
     </div>

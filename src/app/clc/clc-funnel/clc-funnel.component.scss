@@ -1,0 +1,74 @@
+@import "../../../variables.scss";
+
+$funnel-columns: 10;
+$funnel-rows: 3;
+$funnel-lighten-amount: 5%;
+
+.funnel-main {
+    background-color: #ffffff;
+    color: $text-light;
+}
+
+.row-header {
+    background-color: $funnel-row-header;
+}
+
+.row-header.total {
+    background-color: $funnel-row-header;
+}
+
+.column-header {
+    color: $text-light;
+}
+
+.total {
+    background-color: $secondary;
+    border-top: 2px solid #fff;    
+}
+
+// Calculated colors
+@for $c from 0 through $funnel-columns - 1 // Loop over every column
+{ 
+    @for $r from 0 through $funnel-rows - 1 // Loop over every row
+    { 
+        .cell-#{$c}-#{$r} {
+            background-color: lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount );
+        }
+
+        .cell-#{$c}-#{$r}:hover {
+            background-color: darken(lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount ), 5%);
+        }
+    }
+}
+
+// Footer row color change
+@for $column from 0 through $funnel-columns - 1
+{
+    .column-#{$column} {
+        background-color: lighten( $funnel-cell-base-color, $column* $funnel-lighten-amount );
+
+    }
+    .column-#{$column}.total:hover {
+        background-color: darken(lighten( $funnel-cell-base-color, $column * $funnel-lighten-amount ), 5%);
+    }
+}
+
+.header {
+    color: $text-dark;
+    background-color: #f5f6f8;
+}
+
+.stage {
+    color: $text-dark;
+    background-color: #f5f6f8;
+}
+
+.funnel-cell-body {
+    border-bottom: 1px solid #ffffff;
+    min-height: 60px;
+}
+
+.on-market {
+    color: $text-light;
+    background-color: $accent;
+}

@@ -8,7 +8,7 @@ import { SPDataService } from './sp-dashboard/sp-data.service';
 import { GlobalFilterService } from './global-filter.service';
 
 import { AppComponent } from './app.component';
-import { FunnelComponent } from './funnel/funnel.component';
+import { FunnelComponent } from './hq/hq-funnel/hq-funnel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';

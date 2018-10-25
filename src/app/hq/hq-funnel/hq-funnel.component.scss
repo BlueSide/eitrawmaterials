@@ -1,4 +1,10 @@
-@import "../../variables.scss";
+@import "../../../variables.scss";
+
+$funnel-columns: 6;
+$funnel-rows: 6;
+$funnel-cell-base-color: #194782;
+$funnel-row-header: #465c74;
+$funnel-lighten-amount: 10%;
 
 .funnel-main {
     background-color: #ffffff;
