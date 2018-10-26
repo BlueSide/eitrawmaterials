@@ -8,8 +8,7 @@ import { environment } from '../../environments/environment';
 
 declare var UIkit: any;
 
-const USE_MOCK_DATA: boolean = false;
-const LIVE_UPDATE_INTERVAL: number = 5000; //milliseconds
+const LIVE_UPDATE_INTERVAL: number = 10000; //milliseconds
 
 //TODO: Ensure always all items are received!
 const MAX_RESPONSE_ITEMS: number = 5000;
@@ -24,31 +23,22 @@ export class SPDataService
 
     public useMockData: boolean = environment.mockData;
 
-    constructor(
-        private http: HttpClient
-    )
+    constructor(private http: HttpClient)
     {
-        if(!this.useMockData)
-        {
-            this.startLiveUpdate();            
-        }
-        else
-        {
-            // NOTE: Get SharePoint JWT from token service
-            this.http.post<any>(environment.tokenServiceUrl, environment.sharePointCredentials)
-                .subscribe(
-                    (data) => {
-                        localStorage.setItem("token", data.token);
-                        this.startLiveUpdate();
-                    },
-                    (error) => {
-                        let warning = UIkit.notification('Access Token service is down!', 'danger');
-                        // NOTE: Since the token stored in the local storage still might be valid,
-                        //       try to load the data anyway
-                        this.startLiveUpdate();        
-                    }
-                )
-        }
+        // NOTE: Get SharePoint JWT from token service
+        this.http.post<any>(environment.tokenServiceUrl, environment.sharePointCredentials)
+            .subscribe(
+                (data) => {
+                    localStorage.setItem("token", data.token);
+                    this.startLiveUpdate();
+                },
+                (error) => {
+                    let warning = UIkit.notification('Access Token service is down!', 'danger');
+                    // NOTE: Since the token stored in the local storage still might be valid,
+                    //       try to load the data anyway
+                    this.startLiveUpdate();        
+                }
+            )
     }
 
     private startLiveUpdate()
@@ -58,6 +48,7 @@ export class SPDataService
         });
     }
 
+    // TODO: Find a way to re-filter, but not re-request data, so setting Global Filters is instantly
     public update()
     {
         for(let subscription in this.subscriptions)
@@ -76,7 +67,7 @@ export class SPDataService
             });
         }
     }
-    
+
     public addSubscription(listName: string, callback:(any) => void): void
     {
         if(!this.subscriptions[listName])

@@ -16,7 +16,10 @@ export class Filter
 
     doFilter(data: any)
     {
-        return data.filter(this.filter);
+        if(this.enabled)
+            return data.filter(this.filter)
+        else
+            return data;
     }
 
     enable(): void
