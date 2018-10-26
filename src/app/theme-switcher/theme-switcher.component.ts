@@ -15,6 +15,6 @@ export class ThemeSwitcherComponent
     public toggleTheme(theme: Theme)
     {
         theme.filter.enabled = !theme.filter.enabled;
-        this.spData.reprocess();
+        this.spData.update();
     }
 }
