@@ -1,11 +1,11 @@
 <!-- Upper indicators -->
 <div class="uk-child-width-expand@s uk-text-center" uk-grid>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[0].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[1].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[2].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[3].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[4].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div> 
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[0].title}}</p><p>{{indicators[0].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[1].title}}</p><p>{{indicators[1].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[2].title}}</p><p>{{indicators[2].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[3].title}}</p><p>{{indicators[3].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[4].title}}</p><p>{{indicators[4].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[5].title}}</p><p>{{indicators[5].value}}</p></div></div>
 </div>
 
 <div class="uk-child-width-1-2@m" uk-grid>
@@ -18,21 +18,21 @@
     <!-- Right column -->
     <div>
         <div class="uk-child-width-1-2" uk-grid>
-            <pie-chart></pie-chart>
-            <bar-chart></bar-chart>    
-            <bar-chart></bar-chart>    
-            <pie-chart></pie-chart>
+            <pie-chart field=""></pie-chart>
+            <bar-chart></bar-chart> 
+            <results-of-support-chart></results-of-support-chart>
+            <pie-chart field=""></pie-chart> -->
         </div> 
     </div>
 </div>
 <!-- Lower indicators -->
 <div class="uk-child-width-expand@s" uk-grid>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[5].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[6].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[7].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[8].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[9].title}}</div></div>
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[10].title}}</div></div> 
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[11].title}}</div></div> 
-    <div><div class="uk-card uk-card-default uk-card-body">{{indicators[12].title}}</div></div> 
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[6].title}}</p><p>{{indicators[6].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[7].title}}</p><p>{{indicators[7].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[8].title}}</p><p>{{indicators[8].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[9].title}}</p><p>{{indicators[9].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[10].title}}</p><p>{{indicators[10].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[11].title}}</p><p>{{indicators[11].value}}</p></div></div>
+    <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[12].title}}</p><p>{{indicators[12].value}}</p></div></div>
+
 </div>

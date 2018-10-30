@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { BSChart } from '../sp-dashboard/BSChart';
 import { SPDataService, SPList } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
+
+const LIST_NAME: string = 'Innovation Initiatives';
 
 @Component({
   selector: 'pie-chart',
@@ -12,19 +14,21 @@ import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 })
 export class PieChartComponent extends BSDataComponent implements OnInit
 {
-    public title: string = 'Initiative stages';
     chart: Chart = [];
 
     @ViewChild('canvas') canvas: ElementRef;
 
+    @Input() test: string;
+
     constructor(spData: SPDataService, globalFilter: GlobalFilterService)
     {
         super(spData, globalFilter);
-        //this.subscribe('Lists/Innovation%20ProjectsInnovation Initiatives');
+        this.subscribe(LIST_NAME);
     }
 
     ngOnInit()
     {
+        
         let chartObject: any = {
             type: 'pie',
             data: {
@@ -63,6 +67,10 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         
     protected onNewData(): void
     {
+        console.log(this.lists[LIST_NAME]);
+
+        // TODO: Count items in 'field'
+
         this.chart.update();
     }
 

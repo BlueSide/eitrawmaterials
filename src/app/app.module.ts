@@ -16,6 +16,7 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
 import { ClcComponent } from './clc/clc.component';
 import { HQComponent } from './hq/hq.component';
 import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
+import { ResultsOfSupportChartComponent } from './results-of-support-chart/results-of-support-chart.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
         ThemeSwitcherComponent,
         ClcComponent,
         HQComponent,
-        ClcFunnelComponent
+        ClcFunnelComponent,
+        ResultsOfSupportChartComponent
     ],
     imports: [
         BrowserModule,
