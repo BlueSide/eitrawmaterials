@@ -14,8 +14,10 @@ export class ThemeService
         shortName: 'Exploration',
         internalName: 'A. Exploration and raw materials resource assessment',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'A. Exploration and raw materials resource assessment',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'A. Exploration and raw materials resource assessment')
+            }, false
         )
     },
         {
@@ -23,8 +25,10 @@ export class ThemeService
         shortName: 'Mining',
         internalName: 'B. Mining in challenging environments',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'B. Mining in challenging environments',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'B. Mining in challenging environments')
+            }, false
         )
     },
         {
@@ -32,8 +36,10 @@ export class ThemeService
         shortName: 'Processes',
         internalName: 'C. Increased resource efficiency in mineral and metallurgical processes',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'C. Increased resource efficiency in mineral and metallurgical processes',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'C. Increased resource efficiency in mineral and metallurgical processes')
+            }, false
         )
     },
         {
@@ -41,8 +47,10 @@ export class ThemeService
         shortName: 'Recycling',
         internalName: 'D. Recycling and material chain optimisation for End-of-Life products',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'D. Recycling and material chain optimisation for End-of-Life products',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'D. Recycling and material chain optimisation for End-of-Life products')
+            }, false
         )
     },
         {
@@ -50,8 +58,10 @@ export class ThemeService
         shortName: 'Substitution',
         internalName: 'E. Substitution of critical and toxic materials in products and for optimised performance',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'E. Substitution of critical and toxic materials in products and for optimised performance',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'E. Substitution of critical and toxic materials in products and for optimised performance')
+            }, false
         )
     },
         {
@@ -59,8 +69,10 @@ export class ThemeService
         shortName: 'Circular economy',
         internalName: 'F. Design of products and services for the circular economy',
         filter: new Filter(
-            (item) => item[THEMES_FIELD] === 'F. Design of products and services for the circular economy',
-            false
+            (item) => {
+                if(!item[THEMES_FIELD]) return false;
+                return item[THEMES_FIELD].find((choice) => choice === 'F. Design of products and services for the circular economy')
+            }, false
         )
     },
     ];
