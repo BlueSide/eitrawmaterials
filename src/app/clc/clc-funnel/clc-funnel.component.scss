@@ -56,6 +56,7 @@ $funnel-lighten-amount: 5%;
 .header {
     color: $text-dark;
     background-color: #f5f6f8;
+    min-height: 54px;
 }
 
 .stage {
@@ -65,10 +66,24 @@ $funnel-lighten-amount: 5%;
 
 .funnel-cell-body {
     border-bottom: 1px solid #ffffff;
-    min-height: 60px;
+    min-height: 54px;
 }
 
-.on-market {
-    color: $text-light;
-    background-color: $accent;
+.on-market[_ngcontent-c4][_ngcontent-c4] {
+    color: #ffffff;
+    background-color: #63b43d;
+    min-height: 165px;
+    line-height: 134px;
+}
+
+@media (min-width: 1200px) {
+.funnel-main .uk-margin-xlarge-left {
+    margin-left: 94px !important;
+}
+}
+
+@media (min-width: 1200px) {
+.funnel-main .uk-margin-xlarge-left {
+    margin-left: 94px !important;
+}
 }

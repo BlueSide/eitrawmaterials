@@ -1,4 +1,8 @@
-<div class="funnel-main ">
+<div class="uk-card uk-card-small uk-card-default">
+    <div class="uk-card-header">
+        <h4 class="uk-card-title uk-margin-remove-bottom">Funnel Title here</h4>
+    </div>
+    <div class="funnel-main uk-padding">
         <div class="uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
 
             <div>
@@ -22,24 +26,22 @@
 
             <div>
                 <!-- Header -->
-                <div class="header uk-tile uk-padding-small funnel-cell">On market</div>
+                <div class="header uk-tile uk-padding-small funnel-cell">Market</div>
 
                 <!-- Body -->
-                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell"></div>
                     <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market">{{getOnMarket()}}</div>
-                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell"></div>
                 
             </div>
 
         </div>
 
         <!-- Stages -->
-        <div class="uk-grid-collapse" uk-grid>
-            <div class="uk-tile stage"></div>
-            <div class="uk-tile stage">Exploration stage</div>
-            <div class="uk-tile stage">Validation stage</div>
-            <div class="uk-tile stage">Build stage</div>
-            <div class="uk-tile stage">Launch</div>
+        <div class="uk-grid-collapse uk-margin-large-left" uk-grid>
+            <div class="uk-tile uk-padding-small stage uk-width-1-3">Exploration stage</div>
+            <div class="uk-tile uk-padding-small stage uk-width-1-3">Validation stage</div>
+            <div class="uk-tile uk-padding-small stage uk-width-1-5">Build stage</div>
+            <div class="uk-tile uk-padding-small stage">Launch</div>
         </div>
         
+</div>
 </div>

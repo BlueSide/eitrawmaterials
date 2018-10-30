@@ -1,3 +1,7 @@
-<ul class="uk-subnav uk-subnav-divider uk-subnav-pill uk-margin-remove-bottom uk-float-right">
+<ul class="uk-subnav uk-subnav-divider uk-subnav-pill uk-margin-remove-bottom uk-float-right uk-visible@m">
+    <li *ngFor="let theme of themes.getThemes()" [ngClass]="{'uk-active': theme.filter.enabled}"><a (click)="toggleTheme(theme)">{{theme.shortName}}</a></li>
+</ul>
+
+<ul class="uk-nav uk-hidden@m uk-nav-center">
     <li *ngFor="let theme of themes.getThemes()" [ngClass]="{'uk-active': theme.filter.enabled}"><a (click)="toggleTheme(theme)">{{theme.shortName}}</a></li>
 </ul>
