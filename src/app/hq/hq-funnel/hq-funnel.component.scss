@@ -44,8 +44,14 @@ $funnel-lighten-amount: 10%;
         .cell-#{$c}-#{$r}:hover {
             background-color: darken(lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount ), 5%);
         }
+        
+        
     }
 }
+
+.cell-1-1:hover  .cell-1-2 {
+            background-color: aqua;
+ }
 
 // Footer row color change
 @for $column from 0 through $funnel-columns - 1
@@ -57,6 +63,17 @@ $funnel-lighten-amount: 10%;
     .column-#{$column}.total:hover {
         background-color: darken(lighten( $funnel-cell-base-color, $column * $funnel-lighten-amount ), 5%);
     }
+    
+    .column-#{$column + 1}.total:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 0px;
+            border-top: 29px solid transparent;
+            border-bottom: 29px solid transparent;
+            border-left: 10px solid lighten( $funnel-cell-base-color, $column * $funnel-lighten-amount  );
+        }
 }
 
 .footer {
@@ -80,4 +97,21 @@ $funnel-lighten-amount: 10%;
 .market-counter {
     color: $text-light;
     background-color: $accent;
+}
+
+@for $c from 0 through $funnel-columns - 1 // Loop over every column
+{ 
+    @for $r from 0 through $funnel-rows - 1 // Loop over every row
+    { 
+        .cell-#{$c + 1}-#{$r}.funnel-cell-body:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 0px;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 10px solid lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount  );
+        }
+    }
 }

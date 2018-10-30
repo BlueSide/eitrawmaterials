@@ -1,6 +1,42 @@
-<nav class="uk-navbar-container" uk-navbar>
+<nav class="uk-navbar-container uk-navbar-transparent uk-light" uk-navbar>
     <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
+    
+        <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-nav-primary" uk-toggle="target: #offcanvas-nav-primary">
+            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+        </a> 
+        
+        <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+                <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+                    <li><a routerLink="/">EIT RawMaterials</a></li>
+                    <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clc.filter.enabled}">
+                        <a routerLink="/{{clc.id}}">{{clc.title}}</a>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#">Lists</a>
+                        <ul class="uk-nav-sub">
+                            <li>
+                                <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx">
+                                    Innovation Initiatives
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Events/AllItems.aspx">
+                                    Events
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Partners/AllItems.aspx">
+                                    Contacts
+                                </a>
+                            </li>
+                        </ul>  
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="uk-navbar-nav uk-visible@m">
             <li><a routerLink="/">EIT RawMaterials</a></li>
             <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clc.filter.enabled}">
                 <a routerLink="/{{clc.id}}">{{clc.title}}</a>
@@ -21,7 +57,7 @@
                         </li>
                         <li>
                             <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Partners/AllItems.aspx">
-                                Customers and Investors
+                                Contacts
                             </a>
                         </li>
                     </ul>
