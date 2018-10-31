@@ -5,18 +5,24 @@ import { SPDataService, SPList } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 
+const LIST_NAME: string = 'Innovation Initiatives';
+
 @Component({
   selector: 'results-of-support-chart',
   templateUrl: './results-of-support-chart.component.html',
   styleUrls: ['./results-of-support-chart.component.scss']
 })
-export class ResultsOfSupportChartComponent implements OnInit
+export class ResultsOfSupportChartComponent extends BSDataComponent implements OnInit
 {
     chart: Chart = [];
 
     @ViewChild('canvas') canvas: ElementRef;
 
-    constructor() { }
+    constructor(spData: SPDataService, globalFilter: GlobalFilterService)
+    {
+        super(spData, globalFilter);
+        this.subscribe(LIST_NAME);
+    }
 
     ngOnInit()
     {
@@ -25,12 +31,12 @@ export class ResultsOfSupportChartComponent implements OnInit
             data: {
                 labels: ['TRL', 'CRL', 'IRL'],
                 datasets: [{
-                    data: [6, 4.3, 2],
+                    data: [0,0,0],
                     backgroundColor: '#63b43d88',
                     pointHitRadius: 50
                 },
                            {
-                    data: [9, 6.3, 7],
+                    data: [0,0,0],
                     backgroundColor: '#376db288',
                     pointHitRadius: 50
                 }]
@@ -64,8 +70,40 @@ export class ResultsOfSupportChartComponent implements OnInit
         //
     }
 
+    private average(items: any[], field: string): number
+    {
+            
+        let nonNullItems: any[] = items.filter(
+            // NOTE: '-' is an actual choice, so we need to filter it out as well
+            (item) => item[field] && item[field][0] !== '-'
+        );
+
+        let valueArray: number[] = nonNullItems.map((item) => +item[field][0]);
+
+        let total = valueArray.reduce((a: number,b: number)=>a+b, 0);
+
+        if(items.length === 0 || total === 0) return 0;
+        
+        return total / valueArray.length;
+    }
+    
     protected onNewData(): void
     {
+        console.log(this.lists[LIST_NAME][56]);
+        
+        this.chart.data.datasets[0].data = [
+            this.average(this.lists[LIST_NAME], 'TRL_x0020_phase_x0020_at_x0020_s'),
+            this.average(this.lists[LIST_NAME], 'CRL_x0020_phase_x0020_at_x0020_s'),
+            this.average(this.lists[LIST_NAME], 'IRL_x0020_level_x0020_at_x0020_s')
+        ];
+
+        this.chart.data.datasets[1].data = [
+            this.average(this.lists[LIST_NAME], 'TRL_x0020_current_x0020_during_x'),
+            this.average(this.lists[LIST_NAME], 'CRL_x0020_current_x0020_during_x'),
+            this.average(this.lists[LIST_NAME], 'IRL_x0020_current_x0020_level_x0')
+        ];
+        
+        
         this.chart.update();
     }
 

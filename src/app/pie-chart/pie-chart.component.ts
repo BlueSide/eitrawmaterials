@@ -67,7 +67,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         
     protected onNewData(): void
     {
-        console.log(this.lists[LIST_NAME]);
+        //console.log(this.lists[LIST_NAME]);
 
         // TODO: Count items in 'field'
 
