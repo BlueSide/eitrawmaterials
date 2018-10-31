@@ -18,7 +18,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
 
     @ViewChild('canvas') canvas: ElementRef;
 
-    @Input() test: string;
+    @Input() field: string;
 
     constructor(spData: SPDataService, globalFilter: GlobalFilterService)
     {
@@ -28,13 +28,12 @@ export class PieChartComponent extends BSDataComponent implements OnInit
 
     ngOnInit()
     {
-        
         let chartObject: any = {
             type: 'pie',
             data: {
-                labels: ['Startup/SME track', 'Upscaling track'],
+                labels: [],
                 datasets: [{
-                    data: [8, 5.3, 6, 7, 2.6],
+                    data: [],
                     backgroundColor: ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b']
                 }]
             },
@@ -64,13 +63,36 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         }
     }
 
+    private getItemByLabel(labels: any[], label: string)
+    {
+        for(let item of labels)
+        {
+            if(item.label === label) return item;    
+        }
+        
+        return null;
+    }
         
     protected onNewData(): void
     {
-        //console.log(this.lists[LIST_NAME]);
+        let nonNullItems: any[] = this.lists[LIST_NAME].filter((item) => item[this.field]);
 
-        // TODO: Count items in 'field'
+        let labels: any[] = [];
+        nonNullItems.forEach((item) => {
+            let obj = this.getItemByLabel(labels, item[this.field]);
+            if(obj !== null)
+            {
+                ++obj.value;
+            }
+            else
+            {
+                labels.push({ label: item[this.field], value: 1});
+            }
+        });
 
+        
+        this.chart.data.labels = labels.map((item) => item.label);
+        this.chart.data.datasets[0].data = labels.map((item) => item.value);
         this.chart.update();
     }
 

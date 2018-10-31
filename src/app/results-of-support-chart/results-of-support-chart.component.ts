@@ -70,18 +70,22 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
         //
     }
 
+    
     private average(items: any[], field: string): number
     {
-            
+        // Filter non-numerical items
         let nonNullItems: any[] = items.filter(
             // NOTE: '-' is an actual choice, so we need to filter it out as well
             (item) => item[field] && item[field][0] !== '-'
         );
 
+        // Get the first character, container the actual level and iterpret it as a number
         let valueArray: number[] = nonNullItems.map((item) => +item[field][0]);
 
-        let total = valueArray.reduce((a: number,b: number)=>a+b, 0);
+        // Sum the array
+        let total = valueArray.reduce( (a: number,b: number) => a + b, 0);
 
+        // Prevent divide by zero
         if(items.length === 0 || total === 0) return 0;
         
         return total / valueArray.length;
@@ -89,8 +93,6 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
     
     protected onNewData(): void
     {
-        console.log(this.lists[LIST_NAME][56]);
-        
         this.chart.data.datasets[0].data = [
             this.average(this.lists[LIST_NAME], 'TRL_x0020_phase_x0020_at_x0020_s'),
             this.average(this.lists[LIST_NAME], 'CRL_x0020_phase_x0020_at_x0020_s'),
@@ -102,7 +104,6 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
             this.average(this.lists[LIST_NAME], 'CRL_x0020_current_x0020_during_x'),
             this.average(this.lists[LIST_NAME], 'IRL_x0020_current_x0020_level_x0')
         ];
-        
         
         this.chart.update();
     }
