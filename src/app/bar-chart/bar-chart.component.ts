@@ -90,6 +90,10 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                      if(!data[item]) data[item] = 0;
                      ++data[item];
                  }))
+
+        // NOTE: Reset chart
+        this.chart.data.labels = [];
+        this.chart.data.datasets[0].data = [];
         
         // NOTE: Update chart
         for(let item in data)
