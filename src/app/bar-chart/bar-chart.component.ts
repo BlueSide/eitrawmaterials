@@ -30,9 +30,9 @@ export class BarChartComponent extends BSDataComponent implements OnInit
         let chartObject: any = {
             type: 'bar',
             data: {
-                labels: ['Startup/SME track', 'Upscaling track'],
+                labels: [],
                 datasets: [{
-                    data: [0,0],
+                    data: [],
                     backgroundColor: ['#376db2','#376db2'],
                 }]
             },
@@ -48,14 +48,8 @@ export class BarChartComponent extends BSDataComponent implements OnInit
 		    intersect: false
 		},
                 scales: {
-		    xAxes: [{
-			stacked: true,
-		    }],
 		    yAxes: [{
-			stacked: true,
-                        ticks: {
-                            suggestedMax: 9,
-                            stepSize: 1,
+			ticks: {
                             beginAtZero: true
                         }
 		    }]
@@ -75,45 +69,36 @@ export class BarChartComponent extends BSDataComponent implements OnInit
         }
     }
 
+    private getItemByLabel(labels: any[], label: string)
+    {
+        for(let item of labels)
+        {
+            if(item.label === label) return item;    
+        }
+        
+        return null;
+    }
+
     
     protected onNewData(): void
     {
-        // NOTE: SME Track
-        let smeTrack = this.lists[LIST_NAME].filter((item) => {
-            return item['TRL_x0020_phase_x0020_at_x0020_s']
-                && item['Type_x0020_of_x0020_project'] === 'Start-up /SME track';
-        });
-
-        let smeCount = smeTrack.length;
-        let smeSum = 0;
-        smeTrack.forEach((item) => {
-            // Determine TRL level by looking at the first character of the Choice
-            smeSum += (+item['TRL_x0020_phase_x0020_at_x0020_s'].charAt(0));
-        });
-
-        // Prevent divide by zero
-        let smeAverage = smeCount !== 0 ? smeSum/smeCount : 0
-
-
-        // NOTE: Upscaling track
-        let upscalingTrack = this.lists[LIST_NAME].filter((item) => {
-            return item['TRL_x0020_phase_x0020_at_x0020_s']
-                && item['Type_x0020_of_x0020_project'] === 'Upscaling track';
-        });
-        let upscalingCount = upscalingTrack.length;
-        let upscalingSum = 0;
-        upscalingTrack.forEach((item) => {
-            // Determine TRL level by looking at the first character of the Choice
-            upscalingSum += (+item['TRL_x0020_phase_x0020_at_x0020_s'].charAt(0));
-        });
-
-        // Prevent divide by zero
-        let upscalingAverage = upscalingCount !== 0 ? upscalingSum/upscalingCount : 0
-
+        let data = [];
+        
+        this.lists[LIST_NAME].filter( (item) => item['Type_x0020_of_x0020_support_x0020'] )
+            .map((item) => item['Type_x0020_of_x0020_support_x0020']
+                 .forEach((item) => {
+                     if(!data[item]) data[item] = 0;
+                     ++data[item];
+                 }))
+        
         // NOTE: Update chart
-        this.chart.data.datasets[0].data = [smeAverage, upscalingAverage];
+        for(let item in data)
+        {
+            this.chart.data.labels.push(item);
+            this.chart.data.datasets[0].data.push(data[item]);
+        }
         this.chart.update();
-}
+    }
 
 
 }
