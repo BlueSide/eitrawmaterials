@@ -3,6 +3,7 @@ import { Filter } from './sp-dashboard/Filter';
 import { SPDataService } from './sp-dashboard/sp-data.service';
 import { BSGlobalFilter } from './sp-dashboard/BSGlobalFilter'
 import { ThemeService, Theme } from './theme.service'
+import { CLC } from './clc/clc.service';
 
 @Injectable()
 export class GlobalFilterService extends BSGlobalFilter
@@ -36,6 +37,11 @@ export class GlobalFilterService extends BSGlobalFilter
             return this.and(clcFilteredData, themeFilteredData);
         };
 
+    }
+
+    public setClc(clc: CLC): void
+    {
+        this.clcFilter = clc.filter;
     }
 
 }

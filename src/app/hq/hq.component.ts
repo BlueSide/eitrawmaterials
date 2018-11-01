@@ -13,6 +13,8 @@ const LIST_NAME: string = 'Innovation Initiatives';
 export class HQComponent extends BSDataComponent
 {
 
+    public dataLoaded: boolean = false;
+    
     public indicators: any = [
         {title: "Student startups", value: 0},
         {title: "Products/Services launched", value: 0},
@@ -38,6 +40,7 @@ export class HQComponent extends BSDataComponent
 
     public onNewData(): void
     {
+        this.dataLoaded = true;
         /**
          * Upper indicators
          */

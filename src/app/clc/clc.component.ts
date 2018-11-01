@@ -14,6 +14,7 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class ClcComponent extends BSDataComponent
 {
+    public dataLoaded: boolean = false;
     public activeClc: CLC;
 
     public indicators: any = [
@@ -40,17 +41,20 @@ export class ClcComponent extends BSDataComponent
                 globalFilter: GlobalFilterService)
     {
         super(spData, globalFilter);
+
         // Determine which CLC we're on
-       this.route.params.subscribe(params => {
-           this.activeClc = this.clcs.getClc(params['clc']);
-       });
+        this.route.params.subscribe(params => {
+            this.activeClc = this.clcs.getClc(params['clc']);
+            globalFilter.setClc(this.activeClc);
+        });
 
+        
         this.subscribe(LIST_NAME);
-
     }
 
     public onNewData(): void
     {
+        this.dataLoaded = true;
         /**
          * Upper indicators
          */
@@ -108,7 +112,7 @@ export class ClcComponent extends BSDataComponent
         this.indicators[10].value = this.lists[LIST_NAME].map(
             (item) => item['MatchesId'].length
         ).reduce((a,b) => a+b, 0);
- 
+        
         // NOTE: Involved VC firms
         this.indicators[11].value = this.lists[LIST_NAME].map(
             (item) => item['Involved_x0020_venture_x0020_capId'].length
