@@ -3,13 +3,13 @@
         
         <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-nav-primary" uk-toggle="target: #offcanvas-nav-primary">
             <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
-        </a> 
+        </a>
         
         <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
             <div class="uk-offcanvas-bar uk-flex uk-flex-column">
                 <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-                    <li><a routerLink="/">EIT RawMaterials</a></li>
-                    <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clc.filter.enabled}">
+                    <li class="uk-active"><a routerLink="/">EIT RawMaterials</a></li>
+                    <li *ngFor="let clc of clcs.getClcs()" >
                         <a routerLink="/{{clc.id}}">{{clc.title}}</a>
                     </li>
                     <li class="uk-parent">

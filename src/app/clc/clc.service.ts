@@ -12,34 +12,34 @@ export class ClcService
         {
         id: 'clc-north',
         title: 'CLC North',
-        filter: new Filter((item) => item[CLC_FIELD] === "2. CLC North", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "2. CLC North", true)
     },
         {
         id: 'clc-baltic-sea',
         title: 'CLC Baltic Sea',
-        filter: new Filter((item) => item[CLC_FIELD] === "3. CLC Baltic Sea", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "3. CLC Baltic Sea", true)
     },
         {
         id: 'clc-west',
         title: 'CLC West',
-        filter: new Filter((item) => item[CLC_FIELD] === "4. CLC West", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "4. CLC West", true)
     },
         {
         id: 'clc-central',
         title: 'CLC Central',
-        filter: new Filter((item) => item[CLC_FIELD] === "5. CLC Central", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "5. CLC Central", true)
     },
 
         {
         id: 'clc-east',
         title: 'CLC East',
-        filter: new Filter((item) => item[CLC_FIELD] === "6. CLC East", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "6. CLC East", true)
     },
 
         {
         id: 'clc-south',
         title: 'CLC South',
-        filter: new Filter((item) => item[CLC_FIELD] === "7. CLC South", false)
+        filter: new Filter((item) => item[CLC_FIELD] === "7. CLC South", true)
     }
     ];
     
