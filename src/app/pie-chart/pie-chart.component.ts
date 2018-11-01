@@ -18,6 +18,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
 
     @ViewChild('canvas') canvas: ElementRef;
 
+    @Input() title: string;
     @Input() field: string;
 
     constructor(spData: SPDataService, globalFilter: GlobalFilterService)

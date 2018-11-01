@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { BSChart } from '../sp-dashboard/BSChart';
 import { SPDataService, SPList } from '../sp-dashboard/sp-data.service';
@@ -14,10 +14,12 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class BarChartComponent extends BSDataComponent implements OnInit
 {
-    public title: string = 'Average TRL at start';
+    @Input() title: string;
+
     chart: Chart = [];
 
     @ViewChild('canvas') canvas: ElementRef;
+
 
     constructor(spData: SPDataService, globalFilter: GlobalFilterService)
     {
