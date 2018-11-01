@@ -33,7 +33,9 @@ export class HQComponent extends BSDataComponent
         {title: "Investment attracted", value: 0}
     ];
     
-    constructor(spData: SPDataService, globalFilter: GlobalFilterService, private clcs: ClcService)
+    constructor(spData: SPDataService,
+                globalFilter: GlobalFilterService,
+                private clcs: ClcService)
     {
         super(spData, globalFilter);
 

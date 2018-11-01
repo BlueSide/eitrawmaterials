@@ -1,13 +1,87 @@
 <div *ngIf="!dataLoaded" uk-spinner></div>
 <div [ngClass]="{'uk-invisible': !dataLoaded}">
     <!-- Upper indicators -->
-    <div class="uk-child-width-expand@l uk-child-width-1-2@s uk-text-center" uk-grid>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[0].title}}</p><p>{{indicators[0].value}}</p></div></div>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[1].title}}</p><p>{{indicators[1].value}}</p></div></div>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[2].title}}</p><p>{{indicators[2].value}}</p></div></div>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[3].title}}</p><p>{{indicators[3].value}}</p></div></div>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[4].title}}</p><p>{{indicators[4].value}}</p></div></div>
-        <div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[5].title}}</p><p>{{indicators[5].value}}</p></div></div>
+    <div class="uk-child-width-expand@l uk-child-width-1-2@s uk-grid-match uk-grid-small uk-flex-center uk-text-center" uk-grid>
+	
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-education"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[0].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[0].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-plane"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[1].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[1].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-education"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[2].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[2].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-education"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[3].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[3].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-education"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[4].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[4].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex-middle" uk-grid>
+				<div class="uk-card-media-left uk-width-1-3@m uk-padding-small uk-padding-remove-vertical uk-padding-remove-right">
+					<h1 class="uk-heading-primary uk-text-primary"><span class="glyphicon glyphicon-education"></span></h1>
+				</div>
+				<div class="uk-width-2-3@m">
+					<div class="uk-card-body uk-padding-small uk-padding-remove-left">
+						<h3 class="uk-card-title bs-card-title uk-margin-remove-bottom">{{indicators[5].value}}</h3>
+						<p class="uk-margin-small-top">{{indicators[5].title}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+			
     </div>
     <div class="uk-child-width-1-2@xl uk-child-width-1-1@l" uk-grid>
 
@@ -27,13 +101,13 @@
 	</div>
     </div>
     <!-- Lower indicators -->
-    <div class="uk-child-width-expand@l uk-child-width-1-2@s uk-text-center" uk-grid>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[6].title}}</p><p>{{indicators[6].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[7].title}}</p><p>{{indicators[7].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[8].title}}</p><p>{{indicators[8].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[9].title}}</p><p>{{indicators[9].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[10].title}}</p><p>{{indicators[10].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[11].title}}</p><p>{{indicators[11].value}}</p></div></div>
-	<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[12].title}}</p><p>{{indicators[12].value | currency:'EUR':'symbol':'1.0-0'}}</p></div></div>
-    </div>
+	<div class="uk-child-width-expand@l uk-child-width-1-2@s uk-text-center" uk-grid>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[6].title}}</p><p>{{indicators[6].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[7].title}}</p><p>{{indicators[7].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[8].title}}</p><p>{{indicators[8].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[9].title}}</p><p>{{indicators[9].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[10].title}}</p><p>{{indicators[10].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[11].title}}</p><p>{{indicators[11].value}}</p></div></div>
+		<div><div class="uk-card uk-card-default uk-card-body"><p>{{indicators[12].title}}</p><p>{{indicators[12].value | currency:'EUR':'symbol':'1.0-0'}}</p></div></div>
+	</div>
 </div>
