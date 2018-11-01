@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Chart } from 'chart.js';
 import { BSChart } from '../sp-dashboard/BSChart';
 import { SPDataService, SPList } from '../sp-dashboard/sp-data.service';
@@ -18,6 +18,8 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
 
     @ViewChild('canvas') canvas: ElementRef;
 
+    @Input() title: string;
+    
     constructor(spData: SPDataService, globalFilter: GlobalFilterService)
     {
         super(spData, globalFilter);
