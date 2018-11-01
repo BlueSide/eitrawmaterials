@@ -15,7 +15,6 @@ const LIST_NAME: string = 'Innovation Initiatives';
 export class ClcComponent extends BSDataComponent
 {
     public dataLoaded: boolean = false;
-    public activeClc: CLC;
 
     public indicators: any = [
         { title: "Student startups - EIT labeled", value: 0 },
@@ -44,8 +43,8 @@ export class ClcComponent extends BSDataComponent
 
         // Determine which CLC we're on
         this.route.params.subscribe(params => {
-            this.activeClc = this.clcs.getClc(params['clc']);
-            globalFilter.setClc(this.activeClc);
+            this.clcs.activeClc = this.clcs.getClc(params['clc']);
+            globalFilter.setClc(this.clcs.activeClc);
         });
 
         

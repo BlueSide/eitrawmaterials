@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
+import { ClcService } from '../clc/clc.service';
 
 const LIST_NAME: string = 'Innovation Initiatives';
 
@@ -32,9 +33,12 @@ export class HQComponent extends BSDataComponent
         {title: "Investment attracted", value: 0}
     ];
     
-    constructor(spData: SPDataService, globalFilter: GlobalFilterService)
+    constructor(spData: SPDataService, globalFilter: GlobalFilterService, private clcs: ClcService)
     {
         super(spData, globalFilter);
+
+        this.clcs.activeClc = null;
+        
         this.subscribe(LIST_NAME);        
     }
 

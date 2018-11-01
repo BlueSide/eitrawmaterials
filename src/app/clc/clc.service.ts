@@ -8,6 +8,8 @@ const CLC_FIELD = "KIC_x0020_Group_x0020_Entity_x00";
 })
 export class ClcService
 {
+    public activeClc: CLC;
+    
     private clcs: CLC[] = [
         {
         id: 'clc-north',
@@ -53,6 +55,13 @@ export class ClcService
     public getClcs(): CLC[]
     {
         return this.clcs;
+    }
+
+    public isActive(id: string): boolean
+    {
+        if(!this.activeClc) return false;
+
+        return this.activeClc.id === id;
     }
 }
 
