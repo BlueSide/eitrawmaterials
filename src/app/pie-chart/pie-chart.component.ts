@@ -39,6 +39,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                 }]
             },
             options: {
+                showAllTooltips: false,
                 animation: false,
                 responsive: true,
                 onClick: this.onChartClick,
@@ -53,9 +54,8 @@ export class PieChartComponent extends BSDataComponent implements OnInit
             }
         };
         this.chart = new BSChart(this.canvas, chartObject);
-
     }
-
+    
     public onChartClick(event: any)
     {
         let activeElement = this.chart.getElementAtEvent(event);
@@ -92,8 +92,21 @@ export class PieChartComponent extends BSDataComponent implements OnInit
             }
         });
 
+        let chartLabels = labels.map((item) => item.label);
+
+        // NOTE: These are custom labels
+        if(this.field === 'Type_x0020_of_x0020_customer')   
+        {
+            chartLabels = [
+                'Spin-off / -out',
+                'PhD / Master',
+                'Upscaling / KAVA',
+                'Start-up',
+                'SME'
+            ];
+        }
         
-        this.chart.data.labels = labels.map((item) => item.label);
+        this.chart.data.labels = chartLabels;
         this.chart.data.datasets[0].data = labels.map((item) => item.value);
         this.chart.update();
     }
