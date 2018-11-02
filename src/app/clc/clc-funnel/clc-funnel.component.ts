@@ -61,9 +61,12 @@ export class ClcFunnelComponent extends BSDataComponent
 
     public getOnMarket(): number
     {
-        return this.lists[LIST_NAME].filter(
-            (item) => item['Phase_x0020_for_x0020_business_x'] === '5. Market introduction'
-        ).length;
+        if(this.lists[LIST_NAME])
+        {
+            return this.lists[LIST_NAME].filter(
+                (item) => item['Phase_x0020_for_x0020_business_x'] === '5. Market introduction'
+            ).length;
+        }
     }
     
     public getHref(column, row)
