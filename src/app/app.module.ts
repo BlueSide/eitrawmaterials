@@ -23,7 +23,8 @@ import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
 import { ResultsOfSupportChartComponent } from './results-of-support-chart/results-of-support-chart.component';
 
 // NOTE: Font Awesome icons
-import { far } from '@fortawesome/free-regular-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { NumberSuffixPipe } from './number-suffix.pipe'
 
 // Add all icons to the library so you can use it in your page
 library.add(far);
@@ -39,7 +40,8 @@ library.add(far);
         ClcComponent,
         HQComponent,
         ClcFunnelComponent,
-        ResultsOfSupportChartComponent
+        ResultsOfSupportChartComponent,
+        NumberSuffixPipe
     ],
     imports: [
         BrowserModule,

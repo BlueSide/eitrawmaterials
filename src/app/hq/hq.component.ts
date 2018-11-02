@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
+import { NumberSuffixPipe } from '../number-suffix.pipe';
 
 const LIST_NAME: string = 'Innovation Initiatives';
 
