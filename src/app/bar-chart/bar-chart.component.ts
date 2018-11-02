@@ -54,7 +54,12 @@ export class BarChartComponent extends BSDataComponent implements OnInit
 			ticks: {
                             beginAtZero: true
                         }
-		    }]
+		    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
 		}
             }
         };
