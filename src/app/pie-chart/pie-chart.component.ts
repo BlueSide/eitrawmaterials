@@ -30,7 +30,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
     ngOnInit()
     {
         let chartObject: any = {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 labels: [],
                 datasets: [{
@@ -43,7 +43,8 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                 responsive: true,
                 onClick: this.onChartClick,
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'right'
                 },
                 tooltips: {
 		    mode: 'point',

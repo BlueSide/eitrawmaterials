@@ -34,12 +34,12 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                 labels: ['TRL', 'CRL', 'IRL'],
                 datasets: [{
                     data: [0,0,0],
-                    backgroundColor: '#63b43d88',
+                    backgroundColor: '#0b397488',
                     pointHitRadius: 50
                 },
                            {
                     data: [0,0,0],
-                    backgroundColor: '#376db288',
+                    backgroundColor: '#376db278',
                     pointHitRadius: 50
                 }]
             },
@@ -48,7 +48,8 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                 responsive: true,
                 onClick: this.onChartClick, 
                 legend: {
-                    display: false
+                    display: true,
+                    position: 'right'
                 },
                 tooltips: {
 		    mode: 'point',
