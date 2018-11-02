@@ -4,6 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+// Font Awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
 import { SPDataService } from './sp-dashboard/sp-data.service';
 import { GlobalFilterService } from './global-filter.service';
 
@@ -17,6 +21,11 @@ import { ClcComponent } from './clc/clc.component';
 import { HQComponent } from './hq/hq.component';
 import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
 import { ResultsOfSupportChartComponent } from './results-of-support-chart/results-of-support-chart.component';
+
+// NOTE: Font Awesome icons
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCoffee);
 
 @NgModule({
     declarations: [
@@ -35,7 +44,8 @@ import { ResultsOfSupportChartComponent } from './results-of-support-chart/resul
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FontAwesomeModule
     ],
     providers: [
         SPDataService,
