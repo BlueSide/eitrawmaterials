@@ -43,10 +43,10 @@
 
         <ul class="uk-subnav uk-visible@m">
             <li><a routerLink="/">EIT RawMaterials</a></li>
-            <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clc.filter.enabled}">
+            <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'': clc.filter.enabled}">
                 <a routerLink="/{{clc.id}}">{{clc.title}}</a>
             </li>
-            <li>
+            <li class="uk-subnav-divider">
                 <a href="#">Lists</a>
                 <div uk-dropdown="mode: hover;">
                     <ul class="uk-nav uk-dropdown-nav">
