@@ -69,7 +69,7 @@ $funnel-lighten-amount: 5%;
     min-height: 54px;
 }
 
-.on-market[_ngcontent-c4][_ngcontent-c4] {
+.on-market {
     color: #ffffff;
     background-color: #63b43d;
     min-height: 165px;
@@ -107,4 +107,8 @@ $funnel-lighten-amount: 5%;
 .bs-column-launch-stage {
     width: calc(100% * 1 / 11);
     background-color: #96bbeb;
+}
+
+.bs-funnel-total {
+    font-size: 2rem;
 }

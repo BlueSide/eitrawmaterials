@@ -35,7 +35,7 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                 labels: [],
                 datasets: [{
                     data: [],
-                    backgroundColor: ['#376db2','#376db2'],
+                    backgroundColor: ['#376db2','#376db2','#376db2','#376db2','#376db2'],
                 }]
             },
             options: {

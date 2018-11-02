@@ -75,6 +75,7 @@ $funnel-lighten-amount: 10%;
 .footer {
     color: $text-dark;
     background-color: #f5f6f8;
+    min-height: 80px;
 }
 
 .funnel-total:hover {

@@ -41,15 +41,15 @@
             </div>
         </div>
 
-        <ul class="uk-navbar-nav uk-visible@m">
+        <ul class="uk-subnav uk-visible@m">
             <li><a routerLink="/">EIT RawMaterials</a></li>
             <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clc.filter.enabled}">
                 <a routerLink="/{{clc.id}}">{{clc.title}}</a>
             </li>
             <li>
                 <a href="#">Lists</a>
-                <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                <div uk-dropdown="mode: hover;">
+                    <ul class="uk-nav uk-dropdown-nav">
                         <li>
                             <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx">
                                 Innovation Initiatives
