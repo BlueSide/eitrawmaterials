@@ -86,7 +86,6 @@ export class BarChartComponent extends BSDataComponent implements OnInit
         return null;
     }
 
-    
     protected onNewData(): void
     {
         let data = [];

@@ -29,7 +29,7 @@ export class NumberSuffixPipe implements PipeTransform {
         
         return (
             (value / Math.pow(1000, exp)).toLocaleString([], {
-                minimumFractionDigits: 2
+                minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             })
         ) + suffixes[exp - 1];
