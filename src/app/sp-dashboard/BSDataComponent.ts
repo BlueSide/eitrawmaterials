@@ -1,4 +1,4 @@
-import { SPDataService, SPList } from './sp-data.service';
+import { SPDataService, SPList, Subscription } from './sp-data.service';
 import { BSGlobalFilter } from './BSGlobalFilter';
 import { environment } from '../../environments/environment';
 
@@ -19,7 +19,13 @@ export abstract class BSDataComponent
 
     protected subscribe(listName: string): void
     {
-        this.spData.addSubscription(listName, this.processNewData.bind(this));
+        let subscription: Subscription = {
+            listName: listName,
+            newDataCallback: this.processNewData.bind(this),
+            newFilterCallback: this.processNewFilter.bind(this)
+        };
+        
+        this.spData.addSubscription(subscription);
     }
 
     protected filter(data: any[]): any
@@ -60,11 +66,24 @@ export abstract class BSDataComponent
         this.spData.update();
     }
 
+    public processNewFilter(): void
+    {
+        for(let listName in this.unfilteredLists)
+        {
+            let list: SPList = {
+                name: listName,
+                data: this.unfilteredLists[listName]
+            };
+            this.processNewData(list);
+            
+        }
+    }
+    
     public processNewData(list: SPList): void
     {
-        this.unfilteredLists[list.name] = list.data.value;
+        this.unfilteredLists[list.name] = list.data;
 
-        this.globalFilteredLists[list.name] = this.globalFilter.filter(list.data.value);
+        this.globalFilteredLists[list.name] = this.globalFilter.filter(list.data);
         if(this.usesLocalFilter)
         {
             this.lists[list.name] = this.filter(this.globalFilteredLists[list.name]);

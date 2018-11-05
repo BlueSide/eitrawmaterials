@@ -42,6 +42,7 @@ export class GlobalFilterService extends BSGlobalFilter
     public setClc(clc: CLC): void
     {
         this.clcFilter = clc.filter;
+        this.spData.filter();
     }
 
 }

@@ -38,7 +38,7 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                     backgroundColor: '#0b397488',
                     pointHitRadius: 50
                 },
-                 {
+                           {
                     label: 'Current',
                     data: [0,0,0],
                     backgroundColor: '#376db278',
@@ -46,7 +46,9 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                 }]
             },
             options: {
-                animation: false,
+                animation: {
+                    duration: 500
+                },
                 responsive: true,
                 onClick: this.onChartClick, 
                 legend: {

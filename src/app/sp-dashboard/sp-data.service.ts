@@ -19,7 +19,7 @@ export class SPDataService
 
     private url: string = environment.sharePointUrl;
     
-    private subscriptions: any[] = [];
+    private subscribedLists: any[] = [];
 
     public useMockData: boolean = environment.mockData;
 
@@ -41,42 +41,51 @@ export class SPDataService
             )
     }
 
-    private startLiveUpdate()
+    private startLiveUpdate(): void
     {
         let liveUpdateTimer = timer(0, LIVE_UPDATE_INTERVAL).subscribe((ticks) => {
             this.update();            
         });
     }
 
-    // TODO: Find a way to re-filter, but not re-request data, so setting Global Filters is instantly
-    public update()
+    public filter(): void
     {
-        for(let subscription in this.subscriptions)
+        for(let listName in this.subscribedLists)
         {
-            let sub = this.getList(subscription).subscribe((data) => {
-                                
+            for(let subscription of this.subscribedLists[listName])
+            {
+                subscription.newFilterCallback();
+            }
+        }
+    }
+
+    public update(): void
+    {
+        for(let listName in this.subscribedLists)
+        {
+            this.getList(listName).subscribe((data) => {
                 let spList: SPList = {
-                    name: subscription,
-                    data: data
+                    name: listName,
+                    data: data.value
                 };
 
-                for(let callback of this.subscriptions[subscription])
+                for(let subscription of this.subscribedLists[listName])
                 {
-                    callback(spList);
+                    subscription.newDataCallback(spList);
                 }
             });
         }
     }
 
-    public addSubscription(listName: string, callback:(any) => void): void
+    public addSubscription(subscription: Subscription): void
     {
-        if(!this.subscriptions[listName])
+        if(!this.subscribedLists[subscription.listName])
         {
-            this.subscriptions[listName] = [callback];
+            this.subscribedLists[subscription.listName] = [subscription];
         }
         else
         {
-            this.subscriptions[listName].push(callback);
+            this.subscribedLists[subscription.listName].push(subscription);
         }
     }
     
@@ -113,6 +122,13 @@ export class SPDataService
         return {headers: headers};
     }    
 
+}
+
+export interface Subscription
+{
+    listName: string,
+    newDataCallback: (spList) => void,
+    newFilterCallback: (any) => void
 }
 
 export interface SPList

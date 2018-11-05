@@ -40,7 +40,9 @@ export class PieChartComponent extends BSDataComponent implements OnInit
             },
             options: {
                 showAllTooltips: false,
-                animation: false,
+                animation: {
+                    duration: 500
+                },
                 responsive: true,
                 onClick: this.onChartClick,
                 legend: {

@@ -14,7 +14,7 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class ClcComponent extends BSDataComponent
 {
-    public dataLoaded: boolean;
+    public dataLoaded: boolean = false;
 
     public indicators: any = [
         { title: "Student startups - EIT labeled", value: 0 },
@@ -48,8 +48,6 @@ export class ClcComponent extends BSDataComponent
 
         this.subscribe(LIST_NAME);
         
-        this.dataLoaded = false;
-        this.spData.update();
     }
 
     public onNewData(): void

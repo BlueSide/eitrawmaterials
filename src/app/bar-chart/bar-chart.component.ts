@@ -39,7 +39,9 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                 }]
             },
             options: {
-                animation: false,
+                animation: {
+                    duration: 500
+                },
                 responsive: true,
                 onClick: this.onChartClick,
                 legend: {
