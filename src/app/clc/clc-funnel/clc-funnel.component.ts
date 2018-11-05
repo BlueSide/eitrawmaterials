@@ -15,22 +15,22 @@ export class ClcFunnelComponent extends BSDataComponent
 {
     //NOTE: Short names for development
     public rows: SPField[] = [
-        {name: 'TRL', internalName: ''},
-        {name: 'CRL', internalName: ''},
-        {name: 'IRL', internalName: ''},
+        {name: 'TRL', internalName: 'TRL_x0020_current_x0020_during_x'},
+        {name: 'CRL', internalName: 'CRL_x0020_current_x0020_during_x'},
+        {name: 'IRL', internalName: 'IRL_x0020_current_x0020_level_x0'},
     ];
 
     public columns: SPField[] = [
-        {name: '0', internalName: ''},
-        {name: '1', internalName: ''},
-        {name: '2', internalName: ''},
-        {name: '3', internalName: ''},
-        {name: '4', internalName: ''},
-        {name: '5', internalName: ''},
-        {name: '6', internalName: ''},
-        {name: '7', internalName: ''},
-        {name: '8', internalName: ''},
-        {name: '9', internalName: ''},
+        {name: '0', internalName: '0'},
+        {name: '1', internalName: '1'},
+        {name: '2', internalName: '2'},
+        {name: '3', internalName: '3'},
+        {name: '4', internalName: '4'},
+        {name: '5', internalName: '5'},
+        {name: '6', internalName: '6'},
+        {name: '7', internalName: '7'},
+        {name: '8', internalName: '8'},
+        {name: '9', internalName: '9'},
     ];
 
     public list: Map<any, Map<any, number>>;
@@ -42,34 +42,31 @@ export class ClcFunnelComponent extends BSDataComponent
         this.subscribe(LIST_NAME);
     }
 
-    public getColumnTotal(column: any)
-    {
-        if(this.lists[LIST_NAME])
-        {
-            return this.lists[LIST_NAME].filter((item) => {
-                return item['Phase_x0020_for_x0020_business_x'] === column.internalName;
-            }).length;
-        }
-        return null;
-    }
-
     public getFunnelValue(column, row): number
     {
         if(this.lists[LIST_NAME])
         {
-            return this.lists[LIST_NAME].filter((item) => {
-                return (
-                    item['Phase_x0020_for_x0020_business_x'] === column.internalName
-                        && item['Status'] === row.internalName
-                );
-            }).length;
+            // Filter non-numerical items
+            let nonNullItems: any[] = this.lists[LIST_NAME].filter(
+                // NOTE: '-' is an actual choice, so we need to filter it out as well
+                (item) => item[row.internalName] && item[row.internalName][0] !== '-'
+            );
+            
+            // Get the first character, container the actual level and iterpret it as a number
+            let valueArray: number[] = nonNullItems.map((item) => item[row.internalName][0]);
+
+            return valueArray.filter((item) => item === column.internalName).length;
         }
     }
 
     public getOnMarket(): number
     {
-        //TODO: Implement
-        return 33;
+        if(this.lists[LIST_NAME])
+        {
+            return this.lists[LIST_NAME].filter(
+                (item) => item['Phase_x0020_for_x0020_business_x'] === '5. Market introduction'
+            ).length;
+        }
     }
     
     public getHref(column, row)
@@ -94,7 +91,6 @@ export class ClcFunnelComponent extends BSDataComponent
 
     public onNewData(): void
     {
-        
+
     }
 }
-

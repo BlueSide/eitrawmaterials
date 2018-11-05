@@ -14,7 +14,7 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class ClcComponent extends BSDataComponent
 {
-    public dataLoaded: boolean = false;
+    public dataLoaded: boolean;
 
     public indicators: any = [
         { title: "Student startups - EIT labeled", value: 0 },
@@ -40,15 +40,16 @@ export class ClcComponent extends BSDataComponent
                 globalFilter: GlobalFilterService)
     {
         super(spData, globalFilter);
-
         // Determine which CLC we're on
         this.route.params.subscribe(params => {
             this.clcs.activeClc = this.clcs.getClc(params['clc']);
             globalFilter.setClc(this.clcs.activeClc);
         });
 
-        
         this.subscribe(LIST_NAME);
+        
+        this.dataLoaded = false;
+        this.spData.update();
     }
 
     public onNewData(): void

@@ -60,7 +60,7 @@ $funnel-lighten-amount: 5%;
 }
 
 .stage {
-    color: $text-dark;
+    color: #fff;
     background-color: #f5f6f8;
 }
 
@@ -69,7 +69,7 @@ $funnel-lighten-amount: 5%;
     min-height: 54px;
 }
 
-.on-market[_ngcontent-c4][_ngcontent-c4] {
+.on-market {
     color: #ffffff;
     background-color: #63b43d;
     min-height: 165px;
@@ -86,4 +86,30 @@ $funnel-lighten-amount: 5%;
 .funnel-main .uk-margin-xlarge-left {
     margin-left: 94px !important;
 }
+}
+
+.bs-column-exploration-stage {
+    width: calc(100% * 4 / 12);
+    background-color: #194782;
+}
+.bs-column-validation-stage {
+    width: calc(100% * 3 / 12);
+    background-color: #2b76d6;
+}
+.bs-column-build-stage {
+    width: calc(100% * 2/ 12);
+    background-color: #6b9fe3;
+}
+.bs-column-launch-stage {
+    width: calc(100% * 1 / 12);
+    background-color: #96bbeb;
+}
+
+.bs-column-empty {
+    width: calc(100% * 1 / 12);
+    background-color: #fff;
+}
+
+.bs-funnel-total {
+    font-size: 2rem;
 }

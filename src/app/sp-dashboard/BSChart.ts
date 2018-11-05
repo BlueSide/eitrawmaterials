@@ -20,7 +20,7 @@ export class BSChart extends Chart
     {
         if(event.type === 'mousemove')
         {
-            this.shouldUpdate = false;            
+            this.shouldUpdate = false;
         }
         else if(event.type === 'mouseout')
         {

@@ -23,10 +23,6 @@ $funnel-lighten-amount: 10%;
     color: $text-light;
 }
 
-.footer {
-    min-height: 80px;
-}
-
 .total {
     background-color: $secondary;
     border-top: 2px solid #fff;
@@ -79,6 +75,7 @@ $funnel-lighten-amount: 10%;
 .footer {
     color: $text-dark;
     background-color: #f5f6f8;
+    min-height: 80px;
 }
 
 .funnel-total:hover {

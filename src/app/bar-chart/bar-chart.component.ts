@@ -35,7 +35,7 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                 labels: [],
                 datasets: [{
                     data: [],
-                    backgroundColor: ['#376db2','#376db2'],
+                    backgroundColor: ['#376db2','#376db2','#376db2','#376db2','#376db2'],
                 }]
             },
             options: {
@@ -54,7 +54,12 @@ export class BarChartComponent extends BSDataComponent implements OnInit
 			ticks: {
                             beginAtZero: true
                         }
-		    }]
+		    }],
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false
+                        }
+                    }]
 		}
             }
         };
@@ -81,7 +86,6 @@ export class BarChartComponent extends BSDataComponent implements OnInit
         return null;
     }
 
-    
     protected onNewData(): void
     {
         let data = [];

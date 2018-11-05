@@ -1,12 +1,12 @@
 <div class="uk-card uk-card-small uk-card-default">
     <div class="uk-card-header">
-        <h4 class="uk-card-title uk-margin-remove-bottom">Funnel Title here</h4>
+        <h4 class="uk-card-title uk-margin-remove-bottom">Initiative development funnel</h4>
     </div>
-    <div class="funnel-main uk-padding">
+    <div class="funnel-main uk-padding-small">
         <div class="uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
 
             <div>
-                <div class="row-header uk-tile uk-padding-small funnel-cell-body"></div>
+                <div class=" uk-tile uk-padding-small funnel-cell-body"></div>
                 <div *ngFor="let row of rows" class="row-header uk-tile uk-padding-small funnel-cell-body">{{row.name}}</div>
             </div>
             
@@ -26,21 +26,22 @@
 
             <div>
                 <!-- Header -->
-                <div class="header uk-tile uk-padding-small funnel-cell">Market</div>
+                <div class="header uk-tile uk-padding-small funnel-cell uk-text-truncate">Market</div>
 
                 <!-- Body -->
-                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market">{{getOnMarket()}}</div>
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total">{{getOnMarket()}}</div>
                 
             </div>
 
         </div>
 
         <!-- Stages -->
-        <div class="uk-grid-collapse uk-margin-large-left" uk-grid>
-            <div class="uk-tile uk-padding-small stage uk-width-1-3">Exploration stage</div>
-            <div class="uk-tile uk-padding-small stage uk-width-1-3">Validation stage</div>
-            <div class="uk-tile uk-padding-small stage uk-width-1-5">Build stage</div>
-            <div class="uk-tile uk-padding-small stage">Launch</div>
+        <div class="uk-grid-collapse bs-funnel-margin-left" uk-grid>
+            <div class="uk-tile uk-padding-small stage bs-column-empty"></div>
+            <div class="uk-tile uk-padding-small stage bs-column-exploration-stage uk-text-truncate">Exploration stage</div>
+            <div class="uk-tile uk-padding-small stage bs-column-validation-stage uk-text-truncate">Validation stage</div>
+            <div class="uk-tile uk-padding-small stage bs-column-build-stage uk-text-truncate">Build stage</div>
+            <div class="uk-tile uk-padding-small stage bs-column-launch-stage uk-text-truncate">Launch</div>
         </div>
         
 </div>

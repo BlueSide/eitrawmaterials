@@ -18,6 +18,8 @@ import { HQComponent } from './hq/hq.component';
 import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
 import { ResultsOfSupportChartComponent } from './results-of-support-chart/results-of-support-chart.component';
 
+import { NumberSuffixPipe } from './number-suffix.pipe'
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -29,13 +31,14 @@ import { ResultsOfSupportChartComponent } from './results-of-support-chart/resul
         ClcComponent,
         HQComponent,
         ClcFunnelComponent,
-        ResultsOfSupportChartComponent
+        ResultsOfSupportChartComponent,
+        NumberSuffixPipe
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
     ],
     providers: [
         SPDataService,
