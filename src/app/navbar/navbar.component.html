@@ -46,9 +46,9 @@
             <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clcs.isActive(clc.id)}" >
                 <a routerLink="/{{clc.id}}">{{clc.title}}</a>
             </li>
-            <li class="uk-subnav-divider">
+            <li>
                 <a href="#">Lists</a>
-                <div uk-dropdown="mode: hover;">
+                <div uk-dropdown="mode: hover; offset: 0">
                     <ul class="uk-nav uk-dropdown-nav">
                         <li>
                             <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx">

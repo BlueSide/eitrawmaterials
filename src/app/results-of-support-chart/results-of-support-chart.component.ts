@@ -35,13 +35,13 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                 datasets: [{
                     label: 'At start',
                     data: [0,0,0],
-                    backgroundColor: '#0b397488',
+                    backgroundColor: '#63b43d88',
                     pointHitRadius: 50
                 },
                            {
                     label: 'Current',
                     data: [0,0,0],
-                    backgroundColor: '#376db278',
+                    backgroundColor: '#0b397488',
                     pointHitRadius: 50
                 }]
             },
