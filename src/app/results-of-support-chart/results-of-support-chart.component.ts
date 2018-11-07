@@ -50,6 +50,7 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                     duration: 500
                 },
                 responsive: true,
+				maintainAspectRatio: true,
                 legend: {
                     display: false
                 },

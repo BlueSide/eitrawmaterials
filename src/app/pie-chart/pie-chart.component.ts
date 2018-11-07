@@ -47,6 +47,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                     duration: 500
                 },
                 responsive: true,
+				maintainAspectRatio: true,
                 legend: {
                     display: false
                 },
