@@ -18,7 +18,7 @@ export class HQComponent extends BSDataComponent
     public dataLoaded: boolean;
     
     public indicators: any = [
-        {title: "Student startups", value: 0},
+        {title: "Student startups RM-labeled", value: 0},
         {title: "Products/Services launched", value: 0},
         {title: "Startups from upscaling projects", value: 0},
         {title: "Startups supported", value: 0},
@@ -26,9 +26,9 @@ export class HQComponent extends BSDataComponent
         {title: "Success stories", value: 0},
         
         {title: "Participation in match events", value: 0},
-        {title: "Number of people employed", value: 0},
-        {title: "Number of women in the team", value: 0},
-        {title: "Involvement in KAVA projects", value: 0},
+        {title: "Total people employed", value: 0},
+        {title: "# of women employed", value: 0},
+        {title: "Partner in KAVA projects", value: 0},
         {title: "Partner /start-up matches", value: 0},
         {title: "Involved VC firms", value: 0},
         {title: "Investment attracted", value: 0}
