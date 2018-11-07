@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HQComponent } from './hq.component';
+import { KpiComponent } from './kpi.component';
 
-describe('HQComponent', () => {
-  let component: HQComponent;
-  let fixture: ComponentFixture<HQComponent>;
+describe('KpiComponent', () => {
+  let component: KpiComponent;
+  let fixture: ComponentFixture<KpiComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HQComponent ]
+      declarations: [ KpiComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HQComponent);
+    fixture = TestBed.createComponent(KpiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

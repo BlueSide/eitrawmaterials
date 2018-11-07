@@ -14,6 +14,9 @@ const LIST_NAME: string = 'Innovation Initiatives';
 })
 export class PieChartComponent extends BSDataComponent implements OnInit
 {
+
+    public colors: string[] = ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b'];
+    
     chart: Chart = [];
 
     @ViewChild('canvas') canvas: ElementRef;
@@ -35,7 +38,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                 labels: [],
                 datasets: [{
                     data: [],
-                    backgroundColor: ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b']
+                    backgroundColor: this.colors
                 }]
             },
             options: {
@@ -44,10 +47,8 @@ export class PieChartComponent extends BSDataComponent implements OnInit
                     duration: 500
                 },
                 responsive: true,
-                onClick: this.onChartClick,
                 legend: {
-                    display: true,
-                    position: 'right'
+                    display: false
                 },
                 tooltips: {
 		    mode: 'point',
@@ -57,14 +58,11 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         };
         this.chart = new BSChart(this.canvas, chartObject);
     }
-    
-    public onChartClick(event: any)
+
+    public toggleItem(itemIndex: number)
     {
-        let activeElement = this.chart.getElementAtEvent(event);
-        if(activeElement[0])
-        {
-            window.location.assign(``);
-        }
+        this.chart.getDatasetMeta(0).data[itemIndex].hidden = !this.chart.getDatasetMeta(0).data[itemIndex].hidden;
+        this.chart.update();
     }
 
     private getItemByLabel(labels: any[], label: string)
@@ -76,7 +74,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         
         return null;
     }
-        
+    
     protected onNewData(): void
     {
         let nonNullItems: any[] = this.lists[LIST_NAME].filter((item) => item[this.field]);

@@ -3,9 +3,28 @@
         <h4 class="uk-card-title uk-margin-remove-bottom">{{title}}</h4>
     </div>
     <div class="uk-card-body">
-		<div class="chartContainer">
-			<canvas #canvas></canvas>
-		</div>
+	<div class="chartContainer" uk-grid>
+            <div>
+	        <canvas #canvas></canvas>
+            </div>
+            <div>
+                <ul>
+                    <li *ngFor="let dataset of chart.data.datasets; index as i" (click)="toggleItem(i)"
+                        style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                        unselectable="on"
+                        onselectstart="return false;" 
+                        onmousedown="return false;">
+                        <svg width="25" height="15">
+                            <rect x="0" y="0" width="20" height="10"
+                                  [attr.stroke]="dataset.backgroundColor"
+                                  [attr.fill]="dataset.backgroundColor"
+                                  fill-opacity="1"
+                                  stroke-opacity="1"/>
+                        </svg>
+                        <span [ngClass]="{ 'label-hidden': this.chart.data.datasets[i].hidden }">{{dataset.label}}</span>
+                    </li>
+                </ul>
+            </div>
+	</div>
     </div>
 </div>
-

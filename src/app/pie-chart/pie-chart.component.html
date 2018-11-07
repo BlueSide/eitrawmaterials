@@ -3,8 +3,30 @@
         <h4 class="uk-card-title uk-margin-remove-bottom">{{title}}</h4>
     </div>
     <div class="uk-card-body">
-        <div class="chartContainer" style="position: relative; height:100%; width:100%">
-            <canvas #canvas ></canvas>
+        <div class="chartContainer" style="position: relative; height:100%; width:100%" uk-grid>
+            <div>
+                <canvas #canvas ></canvas>
+            </div>
+            <div class="chartLegend">
+                <ul>
+                    <li class="legend-label" *ngFor="let label of chart.data.labels; index as i" (click)="toggleItem(i)"
+                        style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                        unselectable="on"
+                        onselectstart="return false;" 
+                        onmousedown="return false;">
+                        <div *ngIf="chart.getDatasetMeta(0).data[i]">
+                            <svg width="25" height="15">
+                                <rect x="0" y="0" width="20" height="10"
+                                      [attr.stroke]="colors[i]"
+                                      [attr.fill]="colors[i]"
+                                      fill-opacity="0.8"
+                                      stroke-opacity="1"/>
+                            </svg>
+                            <span [ngClass]="{'label-hidden': chart.getDatasetMeta(0).data[i].hidden}">{{label}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

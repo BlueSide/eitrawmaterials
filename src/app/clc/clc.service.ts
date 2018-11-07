@@ -9,6 +9,12 @@ const CLC_FIELD = "KIC_x0020_Group_x0020_Entity_x00";
 export class ClcService
 {
     public activeClc: CLC;
+
+    public hq: CLC = {
+        id: 'hq',
+        title: 'HQ',
+        filter: new Filter((item) => item, true)
+    };
     
     private clcs: CLC[] = [
         {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
@@ -15,23 +15,23 @@ const LIST_NAME: string = 'Innovation Initiatives';
 export class HQComponent extends BSDataComponent
 {
 
-    public dataLoaded: boolean;
+    public dataLoaded: boolean = false;
     
     public indicators: any = [
-        {title: "Student startups RM-labeled", value: 0},
-        {title: "Products/Services launched", value: 0},
-        {title: "Startups from upscaling projects", value: 0},
-        {title: "Startups supported", value: 0},
-        {title: "New SMEs created", value: 0},
-        {title: "Success stories", value: 0},
+        {title: "Student startups", value: 0, icon: "fas fa-graduation-cap"},
+        {title: "Products/Services launched", value: 0, icon: "fas fa-rocket"},
+        {title: "Startups from upscaling projects", value: 0, icon: "fas fa-chart-line"},
+        {title: "Startups supported", value: 0, icon: "far fa-life-ring"},
+        {title: "New SMEs created", value: 0, icon: "far fa-building"},
+        {title: "Success stories", value: 0, icon: "far fa-thumbs-up"},
         
-        {title: "Participation in match events", value: 0},
-        {title: "Total people employed", value: 0},
-        {title: "# of women employed", value: 0},
-        {title: "Partner in KAVA projects", value: 0},
-        {title: "Partner /start-up matches", value: 0},
-        {title: "Involved VC firms", value: 0},
-        {title: "Investment attracted", value: 0}
+        {title: "Participation in match events", value: 0, icon: "far fa-calendar-alt"},
+        {title: "Number of people employed", value: 0, icon: "fas fa-users"},
+        {title: "Number of women in the team", value: 0, icon: "fas fa-female"},
+        {title: "Involvement in KAVA projects", value: 0, icon: "fas fa-sitemap"},
+        {title: "Partner /start-up matches", value: 0, icon: "far fa-handshake"},
+        {title: "Involved VC firms", value: 0, icon: "fas fa-building"},
+        {title: "Investment attracted", value: 0, icon: "fa fa-euro-sign"}
     ];
     
     constructor(spData: SPDataService,
@@ -39,12 +39,13 @@ export class HQComponent extends BSDataComponent
                 private clcs: ClcService)
     {
         super(spData, globalFilter);
-        this.clcs.activeClc = null;
-        this.dataLoaded = false;
+        
+        this.clcs.activeClc = this.clcs.hq;
+        globalFilter.setClc(this.clcs.activeClc);
         
         this.subscribe(LIST_NAME);        
     }
-
+    
     public onNewData(): void
     {
         this.dataLoaded = true;

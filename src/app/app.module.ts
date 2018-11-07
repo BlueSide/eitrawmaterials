@@ -18,7 +18,8 @@ import { HQComponent } from './hq/hq.component';
 import { ClcFunnelComponent } from './clc/clc-funnel/clc-funnel.component';
 import { ResultsOfSupportChartComponent } from './results-of-support-chart/results-of-support-chart.component';
 
-import { NumberSuffixPipe } from './number-suffix.pipe'
+import { NumberSuffixPipe } from './number-suffix.pipe';
+import { KpiComponent } from './kpi/kpi.component'
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { NumberSuffixPipe } from './number-suffix.pipe'
         HQComponent,
         ClcFunnelComponent,
         ResultsOfSupportChartComponent,
-        NumberSuffixPipe
+        NumberSuffixPipe,
+        KpiComponent
     ],
     imports: [
         BrowserModule,
