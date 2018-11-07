@@ -12,12 +12,12 @@
             <div class="uk-tile uk-padding-small stage bs-column-build-stage uk-text-truncate">Build stage</div>
             <div class="uk-tile uk-padding-small stage bs-column-launch-stage uk-text-truncate">Launch</div>
         </div>
-		
+	
         <div class="uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
 
             <div>  
                 <div *ngFor="let row of rows" class="row-header uk-tile uk-padding-small funnel-cell-body">{{row.name}}</div>
-				<div class=" uk-tile uk-padding-small funnel-cell-body"></div>
+		<div class=" uk-tile uk-padding-small funnel-cell-body"></div>
             </div>
             
             <!-- Repeats for every column -->
@@ -28,8 +28,8 @@
                 <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
                     <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">{{getFunnelValue(column, row)}}</div>
                 </a>
-				
-				<!-- Header -->
+		
+		<!-- Header -->
                 <div class="header uk-tile uk-padding-small column-{{c}} funnel-cell">Level {{column.name}}</div>
 
                 
@@ -38,10 +38,10 @@
             <div>  
 
                 <!-- Body -->
-                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total">{{getOnMarket()}}</div>
-					
-				<!-- Header -->
-					<div class="header uk-tile uk-padding-small funnel-cell uk-text-truncate">Market</div>
+                <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total">{{getOnMarket()}}</div>
+		
+		<!-- Header -->
+		<div class="header uk-tile uk-padding-small funnel-cell uk-text-truncate">Market</div>
                 
             </div>
 
@@ -49,5 +49,5 @@
 
         
         
-</div>
+    </div>
 </div>

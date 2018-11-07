@@ -46,10 +46,11 @@ export class ClcFunnelComponent extends BSDataComponent
     {
         if(this.lists[LIST_NAME])
         {
-            // Filter non-numerical items
+            // Filter non-numerical and rejected items
             let nonNullItems: any[] = this.lists[LIST_NAME].filter(
                 // NOTE: '-' is an actual choice, so we need to filter it out as well
                 (item) => item[row.internalName] && item[row.internalName][0] !== '-'
+                            && item['Status'] !== 'Rejected'
             );
             
             // Get the first character, container the actual level and iterpret it as a number

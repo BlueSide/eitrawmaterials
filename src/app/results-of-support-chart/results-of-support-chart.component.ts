@@ -79,10 +79,11 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
     
     private average(items: any[], field: string): number
     {
-        // Filter non-numerical items
+        // Filter non-numerical and rejected items
         let nonNullItems: any[] = items.filter(
             // NOTE: '-' is an actual choice, so we need to filter it out as well
             (item) => item[field] && item[field][0] !== '-'
+            && item['Status'] !== 'Rejected'
         );
 
         // Get the first character, container the actual level and iterpret it as a number

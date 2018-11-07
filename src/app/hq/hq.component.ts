@@ -60,7 +60,6 @@ export class HQComponent extends BSDataComponent
 
         // NOTE: Products/Services launched
         this.indicators[1].value = this.sum(this.lists[LIST_NAME], 'Products_x0020_and_x0020__x002f_');
-
         // NOTE: Startups from upscaling projects
         this.indicators[2].value = this.lists[LIST_NAME].filter((item) => {
             return (item['Type_x0020_of_x0020_customer'] === 'Emerging from Upscaling or other KAVA activities')
