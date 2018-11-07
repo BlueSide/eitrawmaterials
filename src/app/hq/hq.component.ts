@@ -6,6 +6,7 @@ import { ClcService } from '../clc/clc.service';
 import { NumberSuffixPipe } from '../number-suffix.pipe';
 
 const LIST_NAME: string = 'Innovation Initiatives';
+const BASE_HREF: string = 'https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
 
 @Component({
     selector: 'app-hq',
@@ -16,24 +17,51 @@ export class HQComponent extends BSDataComponent
 {
 
     public dataLoaded: boolean = false;
+
+    
     
     public indicators: any = [
-        {title: "Student startups", value: 0, icon: "fas fa-graduation-cap"},
-        {title: "Products/Services launched", value: 0, icon: "fas fa-rocket"},
-        {title: "Startups from upscaling projects", value: 0, icon: "fas fa-chart-line"},
-        {title: "Startups supported", value: 0, icon: "far fa-life-ring"},
-        {title: "New SMEs created", value: 0, icon: "far fa-building"},
-        {title: "Success stories", value: 0, icon: "far fa-thumbs-up"},
+        {title: 'Student startups', value: 0, icon: 'fas fa-graduation-cap',
+         href: BASE_HREF + ''},
         
-        {title: "Participation in match events", value: 0, icon: "far fa-calendar-alt"},
-        {title: "Number of people employed", value: 0, icon: "fas fa-users"},
-        {title: "Number of women in the team", value: 0, icon: "fas fa-female"},
-        {title: "Involvement in KAVA projects", value: 0, icon: "fas fa-sitemap"},
-        {title: "Partner /start-up matches", value: 0, icon: "far fa-handshake"},
-        {title: "Involved VC firms", value: 0, icon: "fas fa-building"},
-        {title: "Investment attracted", value: 0, icon: "fa fa-euro-sign"}
+        {title: 'Products/Services launched', value: 0, icon: 'fas fa-rocket',
+         href: BASE_HREF + ''},
+        
+        {title: 'Startups from upscaling projects', value: 0, icon: 'fas fa-chart-line',
+         href: BASE_HREF + ''},
+        
+        {title: 'Startups supported', value: 0, icon: 'far fa-life-ring',
+         href: BASE_HREF + ''},
+        
+        {title: 'New SMEs created', value: 0, icon: 'far fa-building',
+         href: BASE_HREF + ''},
+        
+        {title: 'Success stories', value: 0, icon: 'far fa-thumbs-up',
+         href: BASE_HREF + ''},
+        
+        
+        {title: 'Participation in match events', value: 0, icon: 'far fa-calendar-alt',
+         href: BASE_HREF + ''},
+        
+        {title: 'Number of people employed', value: 0, icon: 'fas fa-users',
+         href: BASE_HREF + ''},
+        
+        {title: 'Number of women in the team', value: 0, icon: 'fas fa-female',
+         href: BASE_HREF + ''},
+        
+        {title: 'Involvement in KAVA projects', value: 0, icon: 'fas fa-sitemap',
+         href: BASE_HREF + ''},
+        
+        {title: 'Partner /start-up matches', value: 0, icon: 'far fa-handshake',
+         href: BASE_HREF + ''},
+        
+        {title: 'Involved VC firms', value: 0, icon: 'fas fa-building',
+         href: BASE_HREF + ''},
+        
+        {title: 'Investment attracted', value: 0, icon: 'fa fa-euro-sign',
+         href: BASE_HREF + ''},
     ];
-    
+
     constructor(spData: SPDataService,
                 globalFilter: GlobalFilterService,
                 private clcs: ClcService)
@@ -48,18 +76,20 @@ export class HQComponent extends BSDataComponent
     
     public onNewData(): void
     {
-        this.dataLoaded = true;
+        
         /**
          * Upper indicators
          */
         
         // NOTE: Student startups
+        //TODO: KPI keuze bestaat niet
         this.indicators[0].value = this.lists[LIST_NAME].filter(
             (item) => item['Type_x0020_of_x0020_customer'] === 'PhD or Master from RM labeled program'
         ).length;
 
         // NOTE: Products/Services launched
         this.indicators[1].value = this.sum(this.lists[LIST_NAME], 'Products_x0020_and_x0020__x002f_');
+
         // NOTE: Startups from upscaling projects
         this.indicators[2].value = this.lists[LIST_NAME].filter((item) => {
             return (item['Type_x0020_of_x0020_customer'] === 'Emerging from Upscaling or other KAVA activities')
@@ -113,5 +143,7 @@ export class HQComponent extends BSDataComponent
 
         // NOTE: Investment attracted
         this.indicators[12].value = this.sum(this.lists[LIST_NAME], 'Total_x0020_amount_x0020_of_x002');        
+
+        this.dataLoaded = true;
     }
 }
