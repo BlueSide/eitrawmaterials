@@ -17,21 +17,20 @@ export class ClcComponent extends BSDataComponent
     public dataLoaded: boolean = false;
 
     public indicators: any = [
-        { title: "Student startups - EIT labeled", value: 0 },
-        { title: "Products/Services launched", value: 0 },
-        { title: "Startups from innovation projects", value: 0 },
-        { title: "Startups supported", value: 0 },
-        { title: "Investment attracted", value: 0 },
-        { title: "Success stories", value: 0 },
+        {title: "Student startups", value: 0, icon: "fas fa-graduation-cap"},
+        {title: "Products/Services launched", value: 0, icon: "fas fa-rocket"},
+        {title: "Startups from upscaling projects", value: 0, icon: "fas fa-chart-line"},
+        {title: "Startups supported", value: 0, icon: "far fa-life-ring"},
+        {title: "New SMEs created", value: 0, icon: "far fa-building"},
+        {title: "Success stories", value: 0, icon: "far fa-thumbs-up"},
         
-        { title: "Innovation projects", value: 0 },
-        { title: "Feasability studies", value: 0 },
-        { title: "SME project partners", value: 0 },
-        { title: "Succesful matches", value: 0 },
-        { title: "Partners in upscaling projects", value: 0 },
-        { title: "KIC-start funding ideas", value: 0 },
-        { title: "Involved VC-firms", value: 0 },
-        { title: "New SME's created", value: 0 }
+        {title: "Participation in match events", value: 0, icon: "far fa-calendar-alt"},
+        {title: "Number of people employed", value: 0, icon: "fas fa-users"},
+        {title: "Number of women in the team", value: 0, icon: "fas fa-female"},
+        {title: "Involvement in KAVA projects", value: 0, icon: "fas fa-sitemap"},
+        {title: "Partner /start-up matches", value: 0, icon: "far fa-handshake"},
+        {title: "Involved VC firms", value: 0, icon: "fas fa-building"},
+        {title: "Investment attracted", value: 0, icon: "fa fa-euro-sign"}
     ];
 
     constructor(private route: ActivatedRoute,
