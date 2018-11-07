@@ -14,14 +14,16 @@
                         unselectable="on"
                         onselectstart="return false;" 
                         onmousedown="return false;">
-                        <svg width="25" height="15">
-                            <rect x="0" y="0" width="20" height="10"
-                                  [attr.stroke]="colors[i]"
-                                  [attr.fill]="colors[i]"
-                                  fill-opacity="0.8"
-                                  stroke-opacity="1"/>
-                        </svg>
-                        <span [ngClass]="{'label-hidden': chart.getDatasetMeta(0).data[i].hidden}">{{label}}</span>
+                        <div *ngIf="chart.getDatasetMeta(0).data[i]">
+                            <svg width="25" height="15">
+                                <rect x="0" y="0" width="20" height="10"
+                                      [attr.stroke]="colors[i]"
+                                      [attr.fill]="colors[i]"
+                                      fill-opacity="0.8"
+                                      stroke-opacity="1"/>
+                            </svg>
+                            <span [ngClass]="{'label-hidden': chart.getDatasetMeta(0).data[i].hidden}">{{label}}</span>
+                        </div>
                     </li>
                 </ul>
             </div>

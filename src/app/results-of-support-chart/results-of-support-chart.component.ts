@@ -68,7 +68,6 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
             }
         };
         this.chart = new BSChart(this.canvas, chartObject);
-        console.log(this.chart);
     }
 
     public toggleItem(itemIndex: number)

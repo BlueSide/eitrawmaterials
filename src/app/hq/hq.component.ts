@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BSDataComponent } from '../sp-dashboard/BSDataComponent';
 import { SPDataService } from '../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../global-filter.service';
@@ -15,7 +15,7 @@ const LIST_NAME: string = 'Innovation Initiatives';
 export class HQComponent extends BSDataComponent
 {
 
-    public dataLoaded: boolean;
+    public dataLoaded: boolean = false;
     
     public indicators: any = [
         {title: "Student startups", value: 0},
@@ -39,12 +39,13 @@ export class HQComponent extends BSDataComponent
                 private clcs: ClcService)
     {
         super(spData, globalFilter);
-        this.clcs.activeClc = null;
-        this.dataLoaded = false;
+        
+        this.clcs.activeClc = this.clcs.hq;
+        globalFilter.setClc(this.clcs.activeClc);
         
         this.subscribe(LIST_NAME);        
     }
-
+    
     public onNewData(): void
     {
         this.dataLoaded = true;
