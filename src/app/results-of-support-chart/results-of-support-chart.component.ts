@@ -50,10 +50,8 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                     duration: 500
                 },
                 responsive: true,
-                onClick: this.onChartClick, 
                 legend: {
-                    display: true,
-                    position: 'right'
+                    display: false
                 },
                 tooltips: {
 		    mode: 'point',
@@ -70,11 +68,13 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
             }
         };
         this.chart = new BSChart(this.canvas, chartObject);
+        console.log(this.chart);
     }
 
-    public onChartClick(event: any)
+    public toggleItem(itemIndex: number)
     {
-        //
+        this.chart.data.datasets[itemIndex].hidden = !this.chart.data.datasets[itemIndex].hidden;
+        this.chart.update();
     }
 
     
