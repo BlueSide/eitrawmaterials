@@ -11,6 +11,7 @@ export class KpiComponent
     @Input() value: string;
     @Input() title: string;
     @Input() icon: string;
+    @Input() url: string;
     
     constructor() { }
 }

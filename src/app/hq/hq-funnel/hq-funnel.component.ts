@@ -15,11 +15,11 @@ const LIST_NAME: string = 'Innovation Initiatives';
 export class FunnelComponent extends BSDataComponent
 {
     public columns: any[] = [
-        {name: 'New lead', internalName: '1. New lead', value: 0 },
-        {name: 'Pre-assessment', internalName: '2. Pre-assessment', value: 0 },
-        {name: 'Intake', internalName: '3. Intake/Evaluation', value: 0 },
-        {name: 'Support', internalName: '4. Support', value: 0 },
-        {name: 'Market introduction', internalName: '5. Market introduction', value: 0 },
+        {id: 0, name: 'New lead', internalName: '1. New lead', value: 0 },
+        {id: 1, name: 'Pre-assessment', internalName: '2. Pre-assessment', value: 0 },
+        {id: 2, name: 'Intake', internalName: '3. Intake/Evaluation', value: 0 },
+        {id: 3, name: 'Support', internalName: '4. Support', value: 0 },
+        {id: 4, name: 'Market introduction', internalName: '5. Market introduction', value: 0 },
     ];
 
     public rows: Theme[] = [];
@@ -83,20 +83,33 @@ export class FunnelComponent extends BSDataComponent
     
     public getHref(column, row)
     {
-        let result = environment.sharePointUrl + '/Lists/Cases/AllItems.aspx?useFiltersInViewXml=1';
+        let result = 'https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
 
-        if(!column)
+        result += '&FilterField1=Phase_x0020_for_x0020_business_x&FilterValues1=';
+
+        for(let i = column.id; i < this.columns.length; ++i)
         {
-            result += `&FilterField1=Themes&FilterValue1=${encodeURIComponent(row.internalName)}`;
+            let filterValue: string = '';
+
+            if(i !== column.id)
+            {
+                filterValue += encodeURIComponent(';#' + this.columns[i].internalName);
+            }
+            else
+            {
+                filterValue += encodeURIComponent(this.columns[i].internalName);                
+            }
+
+            result += `${filterValue}`;
         }
-        else if(!row)
+        
+        if(row)
         {
-            result += `&FilterField1=Phase&FilterValue1=${encodeURIComponent(column.internalName)}`;
+            result += `&FilterField2=Themes`;
+            result += `&FilterValue2=${encodeURIComponent(row.internalName)}`;
+            result += `&FilterType2=Choice`;
         }
-        else
-        {
-            result += `&FilterField1=Phase&FilterValue1=${encodeURIComponent(column.internalName)}&FilterType1=Choice&FilterField2=Themes&FilterValue2=${encodeURIComponent(row.internalName)}&FilterType2=Choice`;
-        }
+
         
         return result;
     }

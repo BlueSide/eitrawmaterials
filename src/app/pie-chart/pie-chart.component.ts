@@ -17,8 +17,9 @@ export class PieChartComponent extends BSDataComponent implements OnInit
 
     public colors: string[] = ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b'];
     
-    chart: Chart = [];
-
+    private chart: Chart = [];
+    private labels: any[] = [];
+    
     @ViewChild('canvas') canvas: ElementRef;
 
     @Input() title: string;
@@ -43,6 +44,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
             },
             options: {
                 showAllTooltips: false,
+                onClick: this.onChartClick.bind(this),
                 animation: {
                     duration: 500
                 },
@@ -66,6 +68,12 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         this.chart.update();
     }
 
+    private onChartClick(event: any, arr: any[])
+    {
+        console.log(this.labels);
+        console.log(this.labels[arr[0]._index].label);
+    }
+
     private getItemByLabel(labels: any[], label: string)
     {
         for(let item of labels)
@@ -80,21 +88,20 @@ export class PieChartComponent extends BSDataComponent implements OnInit
     {
         let nonNullItems: any[] = this.lists[LIST_NAME].filter((item) => item[this.field]);
 
-        let labels: any[] = [];
+        this.labels = [];
         nonNullItems.forEach((item) => {
-            let obj = this.getItemByLabel(labels, item[this.field]);
+            let obj = this.getItemByLabel(this.labels, item[this.field]);
             if(obj !== null)
             {
                 ++obj.value;
             }
             else
             {
-                labels.push({ label: item[this.field], value: 1});
+                this.labels.push({ label: item[this.field], value: 1});
             }
         });
 
-        let chartLabels = labels.map((item) => item.label);
-
+        let chartLabels = this.labels.map((item) => item.label);
         // NOTE: These are custom labels
         if(this.field === 'Type_x0020_of_x0020_customer')   
         {
@@ -108,7 +115,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
         }
         
         this.chart.data.labels = chartLabels;
-        this.chart.data.datasets[0].data = labels.map((item) => item.value);
+        this.chart.data.datasets[0].data = this.labels.map((item) => item.value);
         this.chart.update();
     }
 

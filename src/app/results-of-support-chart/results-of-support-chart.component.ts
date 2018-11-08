@@ -102,15 +102,15 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
     protected onNewData(): void
     {
         this.chart.data.datasets[0].data = [
-            this.average(this.lists[LIST_NAME], 'TRL_x0020_phase_x0020_at_x0020_s'),
-            this.average(this.lists[LIST_NAME], 'CRL_x0020_phase_x0020_at_x0020_s'),
-            this.average(this.lists[LIST_NAME], 'IRL_x0020_level_x0020_at_x0020_s')
+            this.average(this.lists[LIST_NAME], 'TRL_x0020_phase_x0020_at_x0020_s').toFixed(1),
+            this.average(this.lists[LIST_NAME], 'CRL_x0020_phase_x0020_at_x0020_s').toFixed(1),
+            this.average(this.lists[LIST_NAME], 'IRL_x0020_level_x0020_at_x0020_s').toFixed(1)
         ];
 
         this.chart.data.datasets[1].data = [
-            this.average(this.lists[LIST_NAME], 'TRL_x0020_current_x0020_during_x'),
-            this.average(this.lists[LIST_NAME], 'CRL_x0020_current_x0020_during_x'),
-            this.average(this.lists[LIST_NAME], 'IRL_x0020_current_x0020_level_x0')
+            this.average(this.lists[LIST_NAME], 'TRL_x0020_current_x0020_during_x').toFixed(1),
+            this.average(this.lists[LIST_NAME], 'CRL_x0020_current_x0020_during_x').toFixed(1),
+            this.average(this.lists[LIST_NAME], 'IRL_x0020_current_x0020_level_x0').toFixed(1)
         ];
         
         this.chart.update();

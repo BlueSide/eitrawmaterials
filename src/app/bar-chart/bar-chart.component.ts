@@ -18,6 +18,14 @@ export class BarChartComponent extends BSDataComponent implements OnInit
 
     chart: Chart = [];
 
+    private items: any = [
+        {title: 'BIC', internalName: 'Business idea competition', value: 0},
+        {title: 'Accelerator', internalName: 'Accelerator program', value: 0},
+        {title: 'Booster', internalName: 'Booster funding', value: 0},
+        {title: 'Investment', internalName: 'Investment instrument', value: 0},
+        {title: 'Other support', internalName: 'Complementary support', value: 0}
+    ];
+    
     @ViewChild('canvas') canvas: ElementRef;
 
 
@@ -35,7 +43,7 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                 labels: [],
                 datasets: [{
                     data: [],
-                    backgroundColor: ['#376db2','#376db2','#376db2','#376db2','#376db2'],
+                    backgroundColor: '#376db2',
                 }]
             },
             options: {
@@ -88,27 +96,36 @@ export class BarChartComponent extends BSDataComponent implements OnInit
         return null;
     }
 
+    private incrementItemByInternalName(internalName: string)
+    {
+        for(let item of this.items)
+        {
+            if(item.internalName === internalName)
+            {
+                ++item.value;
+                return;
+            }
+        }
+    }
+    
     protected onNewData(): void
     {
-        let data = [];
+        // NOTE: Reset items to zero values
+        for(let item of this.items)
+        {
+            item.value = 0;
+        }
         
         this.lists[LIST_NAME].filter( (item) => item['Type_x0020_of_x0020_support_x0020'] )
             .map((item) => item['Type_x0020_of_x0020_support_x0020']
-                 .forEach((item) => {
-                     if(!data[item]) data[item] = 0;
-                     ++data[item];
+                 .forEach((internalName) => {
+                     this.incrementItemByInternalName(internalName);
                  }))
 
-        // NOTE: Reset chart
-        this.chart.data.labels = [];
-        this.chart.data.datasets[0].data = [];
-        
         // NOTE: Update chart
-        for(let item in data)
-        {
-            this.chart.data.labels.push(item);
-            this.chart.data.datasets[0].data.push(data[item]);
-        }
+
+        this.chart.data.labels = this.items.map((item) => item.title);
+        this.chart.data.datasets[0].data = this.items.map((item) => item.value)
         this.chart.update();
     }
 
