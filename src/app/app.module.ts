@@ -21,7 +21,7 @@ import { ResultsOfSupportChartComponent } from './results-of-support-chart/resul
 import { NumberSuffixPipe } from './number-suffix.pipe';
 import { KpiComponent } from './kpi/kpi.component'
 
-window.FontAwesomeConfig = {
+(<any>window).FontAwesomeConfig = {
     searchPseudoElements: true
 }
 
