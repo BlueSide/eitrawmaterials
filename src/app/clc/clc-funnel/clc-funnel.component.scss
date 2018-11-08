@@ -34,10 +34,6 @@ $funnel-lighten-amount: 5%;
         .cell-#{$c}-#{$r} {
             background-color: lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount );
         }
-
-        .cell-#{$c}-#{$r}:hover {
-            background-color: darken(lighten( $funnel-cell-base-color, $c * $funnel-lighten-amount ), 5%);
-        }
     }
 }
 
@@ -48,13 +44,12 @@ $funnel-lighten-amount: 5%;
         background-color: lighten( $funnel-cell-base-color, $column* $funnel-lighten-amount );
 
     }
-    .column-#{$column}.total:hover {
-        background-color: darken(lighten( $funnel-cell-base-color, $column * $funnel-lighten-amount ), 5%);
-    }
 }
 
 .funnel-cell-body span:after {
-    content: '\f061';
+    content: '\f105';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
     position: absolute;
     opacity: 0;
     top: 0;

@@ -12,3 +12,12 @@ li.legend-label {
 .label-hidden {
     color: #3333335e;
 }
+
+a {
+	color: $global-primary-background;
+}
+
+a:hover {
+	text-decoration: none;
+	color: $global-secondary-background;
+}
