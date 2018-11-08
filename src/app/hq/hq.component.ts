@@ -18,20 +18,20 @@ export class HQComponent extends BSDataComponent
     public dataLoaded: boolean = false;
     
     public indicators: any = [
-        {title: "Student startups", value: 0, icon: "fas fa-graduation-cap"},
-        {title: "Products/Services launched", value: 0, icon: "fas fa-rocket"},
-        {title: "Startups from upscaling projects", value: 0, icon: "fas fa-chart-line"},
-        {title: "Startups supported", value: 0, icon: "far fa-life-ring"},
-        {title: "New SMEs created", value: 0, icon: "far fa-building"},
-        {title: "Success stories", value: 0, icon: "far fa-thumbs-up"},
+        {title: "Student startups", value: 0, icon: "fas fa-graduation-cap", url: ""},
+        {title: "Products/Services launched", value: 0, icon: "fas fa-rocket", url: ""},
+        {title: "Startups from upscaling projects", value: 0, icon: "fas fa-chart-line", url: ""},
+        {title: "Startups supported", value: 0, icon: "far fa-life-ring", url: ""},
+        {title: "New SMEs created", value: 0, icon: "far fa-building", url: ""},
+        {title: "Success stories", value: 0, icon: "far fa-thumbs-up", url: ""},
         
-        {title: "Participation in match events", value: 0, icon: "far fa-calendar-alt"},
-        {title: "Number of people employed", value: 0, icon: "fas fa-users"},
-        {title: "Number of women in the team", value: 0, icon: "fas fa-female"},
-        {title: "Involvement in KAVA projects", value: 0, icon: "fas fa-sitemap"},
-        {title: "Partner /start-up matches", value: 0, icon: "far fa-handshake"},
-        {title: "Involved VC firms", value: 0, icon: "fas fa-building"},
-        {title: "Investment attracted", value: 0, icon: "fa fa-euro-sign"}
+        {title: "Participation in match events", value: 0, icon: "far fa-calendar-alt", url: ""},
+        {title: "Number of people employed", value: 0, icon: "fas fa-users", url: ""},
+        {title: "Number of women in the team", value: 0, icon: "fas fa-female", url: ""},
+        {title: "Involvement in KAVA projects", value: 0, icon: "fas fa-sitemap", url: ""},
+        {title: "Partner /start-up matches", value: 0, icon: "far fa-handshake", url: ""},
+        {title: "Involved VC firms", value: 0, icon: "fas fa-building", url: ""},
+        {title: "Investment attracted", value: 0, icon: "fa fa-euro-sign", url: ""}
     ];
     
     constructor(spData: SPDataService,
@@ -54,12 +54,14 @@ export class HQComponent extends BSDataComponent
          */
         
         // NOTE: Student startups
+        // TODO: KPI choice doesn't exist
         this.indicators[0].value = this.lists[LIST_NAME].filter(
             (item) => item['Type_x0020_of_x0020_customer'] === 'PhD or Master from RM labeled program'
         ).length;
 
         // NOTE: Products/Services launched
         this.indicators[1].value = this.sum(this.lists[LIST_NAME], 'Products_x0020_and_x0020__x002f_');
+
         // NOTE: Startups from upscaling projects
         this.indicators[2].value = this.lists[LIST_NAME].filter((item) => {
             return (item['Type_x0020_of_x0020_customer'] === 'Emerging from Upscaling or other KAVA activities')
