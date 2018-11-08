@@ -3,43 +3,43 @@
 
     <!-- Top KPI row -->
 
-            <!-- Upper indicators -->
-            <div class="uk-child-width-expand@l uk-child-width-1-3@m uk-child-width-1-2@s uk-grid-match uk-grid-small uk-margin-remove-top uk-margin-remove-top uk-flex-center uk-text-center" uk-grid>
-	        <kpi title="{{indicators[0].title}}" value="{{indicators[0].value}}" icon="{{indicators[0].icon}}"></kpi>
-	        <kpi title="{{indicators[1].title}}" value="{{indicators[1].value}}" icon="{{indicators[1].icon}}"></kpi>
-	        <kpi title="{{indicators[2].title}}" value="{{indicators[2].value}}" icon="{{indicators[2].icon}}"></kpi>
-	        <kpi title="{{indicators[3].title}}" value="{{indicators[3].value}}" icon="{{indicators[3].icon}}"></kpi>
-	        <kpi title="{{indicators[4].title}}" value="{{indicators[4].value}}" icon="{{indicators[4].icon}}"></kpi>
-	        <kpi title="{{indicators[5].title}}" value="{{indicators[5].value}}" icon="{{indicators[5].icon}}"></kpi>
-            </div>
+    <!-- Upper indicators -->
+    <div class="uk-child-width-expand@l uk-child-width-1-3@m uk-child-width-1-2@s uk-grid-match uk-grid-small uk-margin-remove-top uk-margin-remove-top uk-flex-center uk-text-center" uk-grid>
+	<kpi title="{{indicators[0].title}}" value="{{indicators[0].value}}" icon="{{indicators[0].icon}}" url="{{indicators[0].url}}"></kpi>
+	<kpi title="{{indicators[1].title}}" value="{{indicators[1].value}}" icon="{{indicators[1].icon}}" url="{{indicators[1].url}}"></kpi>
+	<kpi title="{{indicators[2].title}}" value="{{indicators[2].value}}" icon="{{indicators[2].icon}}" url="{{indicators[2].url}}"></kpi>
+	<kpi title="{{indicators[3].title}}" value="{{indicators[3].value | numberSuffix}}" icon="{{indicators[3].icon}}" url="{{indicators[3].url}}"></kpi>
+	<kpi title="{{indicators[4].title}}" value="{{indicators[4].value}}" icon="{{indicators[4].icon}}" url="{{indicators[4].url}}"></kpi>
+	<kpi title="{{indicators[5].title}}" value="{{indicators[5].value}}" icon="{{indicators[5].icon}}" url="{{indicators[5].url}}"></kpi>
+    </div>
 
-        <div class="uk-child-width-1-1@xl uk-child-width-1-1@l" uk-grid>
-            <!-- Left column -->
-            <div>
-                <clc-funnel></clc-funnel>
-            </div>
-            <!-- Right column -->
-            <div>
-                <div class="uk-child-width-1-4@xl uk-child-width-1-2@m uk-grid-match" uk-grid>
-                    <pie-chart title="Origin of supported start-ups" field="Type_x0020_of_x0020_customer"></pie-chart>
-                    <bar-chart title="Distribution over support tracks"></bar-chart>  
-                    <results-of-support-chart title="Qualitative results of support"></results-of-support-chart>
-                    <pie-chart field="Type_x0020_of_x0020_innovation"  title="Distribution type of innovation"></pie-chart>
-                </div>
+    <div class="uk-child-width-1-1@xl uk-child-width-1-1@l" uk-grid>
+        <!-- Left column -->
+        <div>
+            <clc-funnel></clc-funnel>
+        </div>
+        <!-- Right column -->
+        <div>
+            <div class="uk-child-width-1-4@xl uk-child-width-1-2@m uk-grid-match" uk-grid>
+                <pie-chart title="Origin of supported start-ups" field="Type_x0020_of_x0020_customer"></pie-chart>
+                <bar-chart title="Distribution over support tracks"></bar-chart>  
+                <results-of-support-chart title="Qualitative results of support"></results-of-support-chart>
+                <pie-chart field="Type_x0020_of_x0020_innovation"  title="Distribution type of innovation"></pie-chart>
             </div>
         </div>
-		
+    </div>
+    
     <!-- Lower indicators -->
     <div class="uk-section-small">
         <div class="uk-child-width-expand@xl uk-child-width-1-3@l uk-child-width-1-2@s uk-grid-match uk-grid-small uk-flex-center uk-text-center" uk-grid>
             <!-- Lower indicators -->
-            <kpi title="{{indicators[6].title}}" value="{{indicators[6].value}}" icon="{{indicators[6].icon}}"></kpi>
-            <kpi title="{{indicators[7].title}}" value="{{indicators[7].value}}" icon="{{indicators[7].icon}}"></kpi>
-            <kpi title="{{indicators[8].title}}" value="{{indicators[8].value}}" icon="{{indicators[8].icon}}"></kpi>
-            <kpi title="{{indicators[9].title}}" value="{{indicators[9].value}}" icon="{{indicators[9].icon}}"></kpi>
-            <kpi title="{{indicators[10].title}}" value="{{indicators[10].value}}" icon="{{indicators[10].icon}}"></kpi>
-            <kpi title="{{indicators[11].title}}" value="{{indicators[11].value}}" icon="{{indicators[11].icon}}"></kpi>
-            <kpi title="{{indicators[12].title}}" value="{{indicators[12].value | numberSuffix}}" icon="{{indicators[12].icon}}"></kpi>
+            <kpi title="{{indicators[6].title}}" value="{{indicators[6].value}}" icon="{{indicators[6].icon}}" url="{{indicators[6].url}}"></kpi>
+            <kpi title="{{indicators[7].title}}" value="{{indicators[7].value}}" icon="{{indicators[7].icon}}" url="{{indicators[7].url}}"></kpi>
+            <kpi title="{{indicators[8].title}}" value="{{indicators[8].value}}" icon="{{indicators[8].icon}}" url="{{indicators[8].url}}"></kpi>
+            <kpi title="{{indicators[9].title}}" value="{{indicators[9].value}}" icon="{{indicators[9].icon}}" url="{{indicators[9].url}}"></kpi>
+            <kpi title="{{indicators[10].title}}" value="{{indicators[10].value}}" icon="{{indicators[10].icon}}" url="{{indicators[10].url}}"></kpi>
+            <kpi title="{{indicators[11].title}}" value="{{indicators[11].value}}" icon="{{indicators[11].icon}}" url="{{indicators[11].url}}"></kpi>
+            <kpi title="{{indicators[12].title}}" value="{{indicators[12].value}}" icon="{{indicators[12].icon}}" url="{{indicators[12].url}}"></kpi>
         </div>
     </div>
 </div>

@@ -119,7 +119,6 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                  }))
 
         // NOTE: Update chart
-
         this.chart.data.labels = this.items.map((item) => item.title);
         this.chart.data.datasets[0].data = this.items.map((item) => item.value)
         this.chart.update();

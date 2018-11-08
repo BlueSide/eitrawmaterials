@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BSDataComponent } from '../../sp-dashboard/BSDataComponent';
 import { SPDataService, SPField } from '../../sp-dashboard/sp-data.service';
 import { GlobalFilterService } from '../../global-filter.service';
+import { ClcService } from '../clc.service';
 import { environment } from '../../../environments/environment';
 
 const LIST_NAME: string = 'Innovation Initiatives';
@@ -61,7 +62,8 @@ export class ClcFunnelComponent extends BSDataComponent
 
     public list: Map<any, Map<any, number>>;
 
-    constructor(spData: SPDataService, globalFilter: GlobalFilterService)
+    constructor(spData: SPDataService, globalFilter: GlobalFilterService,
+                private clcs: ClcService)
     {
         super(spData, globalFilter);
 
@@ -95,16 +97,14 @@ export class ClcFunnelComponent extends BSDataComponent
             ).length;
         }
     }
-    
+
     public getHref(column, row)
     {
         let result = environment.sharePointUrl + '/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
         let field = row.internalName;
         let choice = column[field];
-        result += `&FilterField1=${field}&FilterValue1=${encodeURIComponent(choice)}&FilterType1=Choice`;
-        result += `&FilterField2=Status&FilterValue2=Active&FilterType2=Choice`
-        result += `&FilterField3=Status&FilterValue3=${encodeURIComponent('On hold')}&FilterType3=Choice`
-        result += `&FilterField4=Status&FilterValue4=Closed&FilterType4=Choice`
+        result += `&FilterField1=${field}&FilterValue1=${encodeURIComponent(choice)}&FilterType1=Choice&FilterFields2=Status&FilterValues2=Active%3B%23On%20hold%3B%23Closed&FilterTypes2=Choice`;
+        result += `&FilterField3=KIC_x0020_Group_x0020_Entity_x00&FilterValue3=${encodeURIComponent(this.clcs.activeClc.field)}`;
         
         return result;
     }

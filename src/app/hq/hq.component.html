@@ -6,7 +6,7 @@
 	<kpi title="{{indicators[0].title}}" value="{{indicators[0].value}}" icon="{{indicators[0].icon}}" url="{{indicators[0].url}}"></kpi>
 	<kpi title="{{indicators[1].title}}" value="{{indicators[1].value}}" icon="{{indicators[1].icon}}" url="{{indicators[1].url}}"></kpi>
 	<kpi title="{{indicators[2].title}}" value="{{indicators[2].value}}" icon="{{indicators[2].icon}}" url="{{indicators[2].url}}"></kpi>
-	<kpi title="{{indicators[3].title}}" value="{{indicators[3].value}}" icon="{{indicators[3].icon}}" url="{{indicators[3].url}}"></kpi>
+	<kpi title="{{indicators[3].title}}" value="{{indicators[3].value | numberSuffix}}" icon="{{indicators[3].icon}}" url="{{indicators[3].url}}"></kpi>
 	<kpi title="{{indicators[4].title}}" value="{{indicators[4].value}}" icon="{{indicators[4].icon}}" url="{{indicators[4].url}}"></kpi>
 	<kpi title="{{indicators[5].title}}" value="{{indicators[5].value}}" icon="{{indicators[5].icon}}" url="{{indicators[5].url}}"></kpi>
     </div>
@@ -14,11 +14,11 @@
     <div class="uk-child-width-1-2@xl uk-child-width-1-1@l uk-grid-match" uk-grid>
 
         <!-- Left column -->
-		<div>
-		<div class="uk-child-width-1-1@m uk-child-width-1-1@s" uk-grid>
-            <hq-funnel></hq-funnel>
-			</div>
-			</div>
+	<div>
+	    <div class="uk-child-width-1-1@m uk-child-width-1-1@s" uk-grid>
+                <hq-funnel></hq-funnel>
+	    </div>
+	</div>
         <!-- Right column -->
 	<div>
 	    <div class="uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match" uk-grid>
@@ -40,7 +40,7 @@
             <kpi title="{{indicators[9].title}}" value="{{indicators[9].value}}" icon="{{indicators[9].icon}}" url="{{indicators[9].url}}"></kpi>
             <kpi title="{{indicators[10].title}}" value="{{indicators[10].value}}" icon="{{indicators[10].icon}}" url="{{indicators[10].url}}"></kpi>
             <kpi title="{{indicators[11].title}}" value="{{indicators[11].value}}" icon="{{indicators[11].icon}}" url="{{indicators[11].url}}"></kpi>
-            <kpi title="{{indicators[12].title}}" value="{{indicators[12].value | numberSuffix}}" icon="{{indicators[12].icon}}" url="{{indicators[12].url}}"></kpi>
+            <kpi title="{{indicators[12].title}}" value="{{indicators[12].value}}" icon="{{indicators[12].icon}}" url="{{indicators[12].url}}"></kpi>
         </div>
     </div>
 </div>
