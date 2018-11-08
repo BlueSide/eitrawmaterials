@@ -51,7 +51,7 @@ export class BarChartComponent extends BSDataComponent implements OnInit
                     duration: 500
                 },
                 responsive: true,
-                onClick: this.onChartClick,
+                onClick: this.onChartClick.bind(this),
                 legend: {
                     display: false
                 },
@@ -77,13 +77,9 @@ export class BarChartComponent extends BSDataComponent implements OnInit
 
     }
 
-    public onChartClick(event: any)
+    private onChartClick(event: any, items: any[])
     {
-        let activeElement = this.chart.getElementAtEvent(event);
-        if(activeElement[0])
-        {
-            window.location.assign(``);
-        }
+        window.location.assign(`https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1&FilterField1=Type_x0020_of_x0020_support_x0020&FilterValue1=${this.items[items[0]._index].internalName}&FilterType1=Choice`);
     }
 
     private getItemByLabel(labels: any[], label: string)
