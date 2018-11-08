@@ -21,7 +21,6 @@ export class ClcFunnelComponent extends BSDataComponent
     ];
 
     public columns: SPField[] = [
-        {name: '0', internalName: '0'},
         {name: '1', internalName: '1'},
         {name: '2', internalName: '2'},
         {name: '3', internalName: '3'},
