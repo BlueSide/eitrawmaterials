@@ -57,7 +57,6 @@ export class ClcFunnelComponent extends BSDataComponent
          'TRL_x0020_current_x0020_during_x': '9 - Actual Technology system proven in operational environment',
          'CRL_x0020_current_x0020_during_x': '9 - Widespread product sales',
          'IRL_x0020_current_x0020_level_x0': '9 - Validate Metrics That Matter'}
-        
     ];
 
     public list: Map<any, Map<any, number>>;

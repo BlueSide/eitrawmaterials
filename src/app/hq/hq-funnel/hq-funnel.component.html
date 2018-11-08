@@ -4,7 +4,7 @@
         <h4 class="uk-card-title uk-margin-remove-bottom">Business development funnel - cumulative</h4>
     </div>
 
-    <div class="uk-padding">
+    <div class="">
         
         <div class="funnel-main uk-grid-collapse uk-child-width-expand uk-text-center" uk-grid>
 
@@ -23,12 +23,12 @@
                 
                 <!-- Body -->
                 <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
-                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">{{getFunnelValue(column, row)}}</div>
+                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell"><span>{{getFunnelValue(column, row)}}</span></div>
                 </a>
 
                 <!-- Totals row -->
                 <a class="uk-link-reset" [attr.href]="getHref(column, null)">
-                    <div class="total uk-tile uk-padding-small funnel-cell-body column-{{c}}">{{column.value}}</div>
+                    <div class="total uk-tile uk-padding-small funnel-cell-body column-{{c}}"><span>{{column.value}}</span></div>
                 </a>
 
 				
