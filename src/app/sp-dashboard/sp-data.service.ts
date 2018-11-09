@@ -21,24 +21,29 @@ export class SPDataService
     
     private subscribedLists: any[] = [];
 
-    public useMockData: boolean = environment.mockData;
-
     constructor(private http: HttpClient)
     {
-        // NOTE: Get SharePoint JWT from token service
-        this.http.post<any>(environment.tokenServiceUrl, environment.sharePointCredentials)
-            .subscribe(
-                (data) => {
-                    localStorage.setItem("token", data.token);
-                    this.startLiveUpdate();
-                },
-                (error) => {
-                    let warning = UIkit.notification('Access Token service is down!', 'danger');
-                    // NOTE: Since the token stored in the local storage still might be valid,
-                    //       try to load the data anyway
-                    this.startLiveUpdate();        
-                }
-            )
+        if(environment.tokenServiceUrl)
+        {
+            // NOTE: Get SharePoint JWT from token service
+            this.http.post<any>(environment.tokenServiceUrl, environment.sharePointCredentials)
+                .subscribe(
+                    (data) => {
+                        localStorage.setItem("token", data.token);
+                        this.startLiveUpdate();
+                    },
+                    (error) => {
+                        let warning = UIkit.notification('Access Token service is down!', 'danger');
+                        // NOTE: Since the token stored in the local storage still might be valid,
+                        //       try to load the data anyway
+                        this.startLiveUpdate();        
+                    }
+                )
+        }
+        else
+        {
+            this.startLiveUpdate();            
+        }
     }
 
     private startLiveUpdate(): void
@@ -114,7 +119,7 @@ export class SPDataService
             'Content-Type': 'application/json;odata=verbose',
         };
 
-        if(this.useMockData)
+        if(environment.tokenServiceUrl)
         {
             headersObj['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         }

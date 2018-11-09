@@ -17,6 +17,8 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "deployUrl": "https://kplusv.sharepoint.com/sites/eitrawmaterials/SitePages/",
+                        "baseHref" : "https://kplusv.sharepoint.com/sites/eitrawmaterials/SitePages/Home.aspx",
                         "outputPath": "dist/eitrawmaterials",
                         "index": "src/index.html",
                         "main": "src/main.ts",

@@ -1,0 +1,73 @@
+div#sideNavBox {
+    display: none;
+}
+#contentBox {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.ms-breadcrumb-top {
+    display: none;
+}
+
+div#WebPartWPQ2_ChromeTitle {
+    display: none;
+}
+
+h1#pageTitle {
+    display: none;
+}
+
+.ms-wikicontent.ms-rtestate-field {
+    padding-right: 0px !important;
+}
+
+.ms-rte-layoutszone-inner {
+    margin-top: -10px;
+}
+
+.ms-rte-layoutszone-inner {
+    margin: 0px !important;
+    border-width: 0px !important;
+}
+
+#contentRow {
+    padding-top: 0px;
+}
+
+table {
+    border-spacing: 0px !important;
+}
+
+td {
+	padding: 0px !important;
+}
+
+.ms-webpartzone-cell {
+    margin: auto auto 0px;
+}
+
+#s4-bodyContainer {
+    padding-bottom: 0px;
+}
+
+.ms-rte-layoutszone-outer {
+    background: #f8f8f8;
+}
+
+.uk-tile::after, .uk-tile::before {
+    display: grid;
+}
+
+.funnel-cell-body span:after {
+    top: 3px;
+}
+
+#searchInputBox {
+    margin-bottom: 0px;
+    margin-top: 12px;
+}
+
+.funnel-cell-body {
+    line-height: 29px;
+}

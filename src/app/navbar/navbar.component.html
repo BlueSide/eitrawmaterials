@@ -42,9 +42,9 @@
         </div>
 
         <ul class="uk-navbar-nav uk-visible@m">
-            <li [ngClass]="{'uk-active': !clcs.activeClc}"><a routerLink="/">EIT RawMaterials</a></li>
+            <li [ngClass]="{'uk-active': clcs.activeClc === clcs.hq}"><a routerLink="/">EIT RawMaterials</a></li>
             <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clcs.isActive(clc.id)}" >
-                <a routerLink="/{{clc.id}}">{{clc.title}}</a>
+                <a [routerLink]="clc.id">{{clc.title}}</a>
             </li>
         </ul>
 		</div>

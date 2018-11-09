@@ -25,7 +25,7 @@
                 
                 <!-- Body -->
                 <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
-                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">
+                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell uk-flex-center uk-flex-middle">
                         <span>{{getFunnelValue(column, row)}}</span>
                     </div>
                 </a>
@@ -39,7 +39,7 @@
 
                 <!-- Body -->
                 <a href="{{getOnMarketHref()}}">
-                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total">
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total uk-flex-center uk-flex-middle">
                         <span>{{getOnMarket()}}</span>
                     </div>
 		</a>

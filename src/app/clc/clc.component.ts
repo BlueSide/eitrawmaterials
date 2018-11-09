@@ -56,7 +56,8 @@ export class ClcComponent extends BSDataComponent
         this.route.params.subscribe(params => {
             this.clcs.activeClc = this.clcs.getClc(params['clc']);
             globalFilter.setClc(this.clcs.activeClc);
-        });
+            spData.update();        
+    });
 
         this.subscribe(LIST_NAME);
         

@@ -4,7 +4,6 @@
 
 export const environment = {
     production: false,
-    mockData: true,
     sharePointUrl: 'https://kplusv.sharepoint.com/sites/eitrawmaterials',
     tokenServiceUrl: 'http://localhost:8033/token',
 

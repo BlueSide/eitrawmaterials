@@ -56,7 +56,7 @@ export class HQComponent extends BSDataComponent
         
         this.clcs.activeClc = this.clcs.hq;
         globalFilter.setClc(this.clcs.activeClc);
-        
+        spData.update();        
         this.subscribe(LIST_NAME);        
     }
     
