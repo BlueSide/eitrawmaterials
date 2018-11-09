@@ -22,24 +22,27 @@
             
             <!-- Repeats for every column -->
             <div *ngFor="let column of columns; index as c">
-
                 
                 <!-- Body -->
                 <a class="uk-link-reset" *ngFor="let row of rows; index as r" [attr.href]="getHref(column, row)">
-                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell"><span>{{getFunnelValue(column, row)}}</span></div>
+                    <div class="cell-{{c}}-{{r}} uk-tile uk-padding-small funnel-cell-body funnel-cell">
+                        <span>{{getFunnelValue(column, row)}}</span>
+                    </div>
                 </a>
 		
 		<!-- Header -->
                 <div class="header uk-tile uk-padding-small column-{{c}} funnel-cell">Level {{column.name}}</div>
-
                 
             </div>
 
             <div>  
 
                 <!-- Body -->
-                <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total"><span>{{getOnMarket()}}</span></div>
-		
+                <a href="{{getOnMarketHref()}}">
+                    <div class="uk-tile uk-padding-small funnel-cell-body funnel-cell on-market bs-funnel-total">
+                        <span>{{getOnMarket()}}</span>
+                    </div>
+		</a>
 		<!-- Header -->
 		<div class="header uk-tile uk-padding-small funnel-cell uk-text-truncate">Market</div>
                 

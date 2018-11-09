@@ -32,6 +32,7 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
             type: 'radar',
             data: {
                 labels: ['TRL', 'CRL', 'IRL'],
+                backgroundColor: ['red', 'yellow'],
                 datasets: [{
                     label: 'At start',
                     data: [0,0,0],
@@ -56,7 +57,8 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
                 },
                 tooltips: {
 		    mode: 'point',
-		    intersect: false
+		    intersect: false,
+                    displayColors: false
 		},
                 scale: {
                     ticks: {

@@ -17,8 +17,6 @@ export class HQComponent extends BSDataComponent
 {
 
     public dataLoaded: boolean = false;
-
-    
     
     public indicators: any = [
         {title: "Startups supported", value: 0, icon: "far fa-life-ring",
@@ -65,7 +63,7 @@ export class HQComponent extends BSDataComponent
     public onNewData(): void
     {
         
-        /**
+        /*
          * Upper indicators
          */
         
@@ -96,10 +94,9 @@ export class HQComponent extends BSDataComponent
         this.indicators[4].value = this.lists[LIST_NAME].filter((item) => item['Success_x0020_story'] ).length;
 
         
-        /**
+        /*
          * Lower indicators
          */
-
         
         // NOTE: Participation in match events
         this.indicators[6].value = this.lists[LIST_NAME].map(
@@ -129,5 +126,7 @@ export class HQComponent extends BSDataComponent
 
         // NOTE: Investment attracted
         this.indicators[3].value = this.sum(this.lists[LIST_NAME], 'Total_x0020_amount_x0020_of_x002');
+
+        this.dataLoaded = true;
     }
 }

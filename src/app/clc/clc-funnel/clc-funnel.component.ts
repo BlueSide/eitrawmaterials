@@ -98,11 +98,19 @@ export class ClcFunnelComponent extends BSDataComponent
         }
     }
 
-    public getHref(column, row)
+    public getOnMarketHref(): string
     {
-        let result = environment.sharePointUrl + '/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
-        let field = row.internalName;
-        let choice = column[field];
+        let result: string = environment.sharePointUrl + '/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
+        result += `&FilterField1=Phase_x0020_for_x0020_business_x&FilterValue1=5%2E%20Market%20introduction&FilterType1=Choice`;
+        result += `&FilterField2=KIC_x0020_Group_x0020_Entity_x00&FilterValue2=${encodeURIComponent(this.clcs.activeClc.field)}`;
+        return result;
+    }
+
+    public getHref(column, row): string
+    {
+        let result: string = environment.sharePointUrl + '/Lists/Innovation%20Projects/AllItems.aspx?useFiltersInViewXml=1';
+        let field: string = row.internalName;
+        let choice: string = column[field];
         result += `&FilterField1=${field}&FilterValue1=${encodeURIComponent(choice)}&FilterType1=Choice&FilterFields2=Status&FilterValues2=Active%3B%23On%20hold%3B%23Closed&FilterTypes2=Choice`;
         result += `&FilterField3=KIC_x0020_Group_x0020_Entity_x00&FilterValue3=${encodeURIComponent(this.clcs.activeClc.field)}`;
         
@@ -111,6 +119,6 @@ export class ClcFunnelComponent extends BSDataComponent
 
     public onNewData(): void
     {
-
+        //
     }
 }
