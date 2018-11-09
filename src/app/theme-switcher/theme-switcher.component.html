@@ -2,6 +2,15 @@
     <li *ngFor="let theme of themes.getThemes()" [ngClass]="{'uk-active': theme.filter.enabled}"><a (click)="toggleTheme(theme)">{{theme.shortName}}</a></li>
 </ul>
 
-<ul class="uk-nav uk-hidden@m uk-nav-center">
-    <li *ngFor="let theme of themes.getThemes()" [ngClass]="{'uk-active': theme.filter.enabled}"><a (click)="toggleTheme(theme)">{{theme.shortName}}</a></li>
-</ul>
+<div class="uk-card uk-card-default uk-card-body uk-hidden@m">
+	<ul class="uk-nav-default uk-nav-parent-icon" uk-nav> 
+		<li class="uk-parent">
+		<a href="#">Themes</a>
+		<ul class="uk-nav-sub">
+			<div class="uk-width-3-4">
+			<li *ngFor="let theme of themes.getThemes()" [ngClass]="{'uk-active': theme.filter.enabled}"><a (click)="toggleTheme(theme)">{{theme.shortName}}</a></li>
+			</div>
+		</ul>
+		</li>
+	</ul>
+</div>
