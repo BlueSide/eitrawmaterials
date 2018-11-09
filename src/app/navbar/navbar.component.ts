@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class NavbarComponent
 {
-    
-    constructor(private clcs: ClcService) { }
+    //NOTE: We inject it as public so we can use it in the template
+    constructor(public clcs: ClcService) { }
 
 }

@@ -9,8 +9,8 @@ import { SPDataService } from '../sp-dashboard/sp-data.service';
 })
 export class ThemeSwitcherComponent
 {
-
-    constructor(private themes: ThemeService, private spData: SPDataService) { }
+    //NOTE: We inject the ThemeService as public so we can use it in the template
+    constructor(public themes: ThemeService, private spData: SPDataService) { }
 
     public toggleTheme(theme: Theme)
     {

@@ -17,7 +17,7 @@ export class PieChartComponent extends BSDataComponent implements OnInit
 
     public colors: string[] = ['#376db2', '#63b43d', '#465c74', '#9d5ab9', '#bfc4c8', '#d8885b'];
     
-    private chart: Chart = [];
+    public chart: Chart = [];
     private labels: any[] = [];
     
     @ViewChild('canvas') canvas: ElementRef;
