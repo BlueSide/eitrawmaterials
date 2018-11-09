@@ -71,3 +71,8 @@ td {
 .funnel-cell-body {
     line-height: 29px;
 }
+
+.on-market {
+    min-height: 180px !important;
+    line-height: 149px !important;
+}
