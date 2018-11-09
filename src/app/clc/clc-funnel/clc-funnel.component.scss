@@ -46,7 +46,7 @@ $funnel-lighten-amount: 5%;
     }
 }
 
-.funnel-cell-body span:after {
+.uk-tile span:after {
     content: '\f105';
 	font-family: 'Font Awesome 5 Free';
 	font-weight: 900;
@@ -57,18 +57,18 @@ $funnel-lighten-amount: 5%;
     transition: 0.5s;
 }
 
-.funnel-cell-body span {
+.uk-tile span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.funnel-cell-body:hover span {
+.uk-tile:hover span {
   padding-right: 25px;
 }
 
-.funnel-cell-body:hover span:after {
+.uk-tile:hover span:after {
   opacity: 1;
   right: 0;
 }
