@@ -46,7 +46,11 @@
             <li *ngFor="let clc of clcs.getClcs()" [ngClass]="{'uk-active': clcs.isActive(clc.id)}" >
                 <a routerLink="/{{clc.id}}">{{clc.title}}</a>
             </li>
-			<li><hr class="uk-divider-vertical"></li>
+        </ul>
+		</div>
+		
+		<div class="uk-navbar-right">
+		<ul class="uk-navbar-nav uk-visible@m">
             <li>
                 <a href="#">Lists</a>
                 <div uk-dropdown="mode: hover; offset: 0">
@@ -70,7 +74,7 @@
                 </div>
             </li>
         </ul>
-
-    </div>
-
-</nav>
+		
+		
+		</div>
+		</nav>
