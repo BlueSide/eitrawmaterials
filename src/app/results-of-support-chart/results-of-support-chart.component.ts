@@ -103,17 +103,22 @@ export class ResultsOfSupportChartComponent extends BSDataComponent implements O
     protected onNewData(): void
     {
         let decimals = 1;
-        
+
+        let items = this.lists[LIST_NAME].filter((item) => {
+            return (item['Phase_x0020_for_x0020_business_x'] === '4. Support')
+                || (item['Phase_x0020_for_x0020_business_x'] === '5. Market introduction');
+        });
+
         this.chart.data.datasets[0].data = [
-            this.average(this.lists[LIST_NAME], 'TRL_x0020_phase_x0020_at_x0020_s').toFixed(decimals),
-            this.average(this.lists[LIST_NAME], 'CRL_x0020_phase_x0020_at_x0020_s').toFixed(decimals),
-            this.average(this.lists[LIST_NAME], 'IRL_x0020_level_x0020_at_x0020_s').toFixed(decimals)
+            this.average(items, 'TRL_x0020_phase_x0020_at_x0020_s').toFixed(decimals),
+            this.average(items, 'CRL_x0020_phase_x0020_at_x0020_s').toFixed(decimals),
+            this.average(items, 'IRL_x0020_level_x0020_at_x0020_s').toFixed(decimals)
         ];
 
         this.chart.data.datasets[1].data = [
-            this.average(this.lists[LIST_NAME], 'TRL_x0020_current_x0020_during_x').toFixed(decimals),
-            this.average(this.lists[LIST_NAME], 'CRL_x0020_current_x0020_during_x').toFixed(decimals),
-            this.average(this.lists[LIST_NAME], 'IRL_x0020_current_x0020_level_x0').toFixed(decimals)
+            this.average(items, 'TRL_x0020_current_x0020_during_x').toFixed(decimals),
+            this.average(items, 'CRL_x0020_current_x0020_during_x').toFixed(decimals),
+            this.average(items, 'IRL_x0020_current_x0020_level_x0').toFixed(decimals)
         ];
         
         this.chart.update();

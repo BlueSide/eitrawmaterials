@@ -4,7 +4,8 @@
         <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-nav-primary" uk-toggle="target: #offcanvas-nav-primary">
             <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
         </a>
-        
+
+        <!-- Offcanvas menu -->
         <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
             <div class="uk-offcanvas-bar uk-flex uk-flex-column">
                 <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
@@ -47,12 +48,13 @@
                 <a [routerLink]="clc.id">{{clc.title}}</a>
             </li>
         </ul>
-		</div>
-		
-		<div class="uk-navbar-right">
-		<ul class="uk-navbar-nav uk-visible@m">
+    </div>
+    
+    <!-- Navbar -->
+    <div class="uk-navbar-right">
+	<ul class="uk-navbar-nav uk-visible@m">
             <li>
-                <a href="#">Lists</a>
+                <a>Lists</a>
                 <div uk-dropdown="mode: hover; offset: 0">
                     <ul class="uk-nav uk-dropdown-nav">
                         <li>
@@ -70,11 +72,16 @@
                                 Contacts
                             </a>
                         </li>
+                        <li>
+                            <a href="https://kplusv.sharepoint.com/sites/eitrawmaterials/Lists/KAVAs/AllItems.aspx">
+                                KAVAs
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
         </ul>
-		
-		
-		</div>
-		</nav>
+	
+	
+    </div>
+</nav>
